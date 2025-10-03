@@ -1,17 +1,8 @@
 public class Timer {
-    private long startTime;
-    private long endTime;
+    // Task: Field to store start time
+    // Task: Field to store end time
 
-    public void start() {
-        startTime = System.nanoTime();
-    }
-
-    public void stop() {
-        endTime = System.nanoTime();
-    }
-
-    public void printElapsedTime(String operation) {
-        long duration = endTime - startTime;
-        System.out.println(operation + " took " + duration + " ns");
-    }
+    // Task: Method to start timer
+    // Task: Method to stop timer
+    // Task: Method to get elapsed time
 }
