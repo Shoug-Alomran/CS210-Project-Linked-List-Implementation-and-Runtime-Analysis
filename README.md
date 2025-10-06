@@ -93,8 +93,3 @@ Each phase prints its runtime in milliseconds to the console.
 | Sorted_Output_MS.txt | Records sorted in descending order using Merge Sort. |
 | Sorted_Output_QS.txt | Records sorted in descending order using Quick Sort. |
 
----
-
-## Example Input and Output
-
-**Input.txt**
