@@ -1,90 +1,101 @@
-# CS210 Project — Student Course Registration Analysis
-
-This project implements a **student course registration analysis system** using Java.  
-It processes registration data to calculate a *Demand Score* for each record and analyzes sorting algorithm performance.  
-Developed as part of **CS210: Data Structures** at *Prince Sultan University*.
-
----
-
-## Project Overview
-
-The system reads student registration data from a text file (`Input.txt`), processes each record according to defined rules, and outputs:
-- `Output.txt` → all records with calculated Demand Scores.
-- Four sorted files (`Sorted_Output_SS.txt`, `Sorted_Output_IS.txt`, `Sorted_Output_MS.txt`, `Sorted_Output_QS.txt`) → sorted in **descending order** by Demand Score using:
-  1. Selection Sort  
-  2. Insertion Sort  
-  3. Merge Sort  
-  4. Quick Sort
-
-The project also measures **theoretical complexity** *(Big-O)* and **actual runtime** using Java’s `Clock` class.
+# 🎓 CS210 Project — Student Course Registration Analysis  
+**Prince Sultan University – Data Structures (CS210)**  
+**Developed by:** Shoug Alomran and Layan Bindayel
+**Date:** 23/10/2025
 
 ---
 
-## Processing Rules (Demand Score)
+## Project Description
 
-Each registration starts with a **base score of 50**, adjusted as follows:
+This project implements a **Student Course Registration Analysis System** that helps analyze student registration data and determine course demand levels.  
+The system uses a **custom linked list**, processes thousands of records from `Input.txt`, calculates a **Demand Score** for each registration entry, and sorts the data using **four different sorting algorithms**.
 
-| Rule | Description | Adjustment |
-|------|--------------|-------------|
-| Student Class | 1: −25% • 2: −10% • 3: +10% • 4: +25% • 5: +50% | Multiplier |
-| Time of Day | 6–8: +5 • 8–10: +10 • 10–12: +5 • 12–14: 0 • 14–16: −5 • 16–20: −10 • after 20: −15 | Bonus/Penalty |
-| Course Priority | Ends with odd number → +20 • even number → −10 | Adjustment |
-| Final Score | Rounded and clamped between 0–100 | — |
+All steps — reading, processing, writing, and sorting — are timed using **Java’s Clock API** for performance analysis.
 
 ---
 
-## Files and Structure
+## Objectives
 
-| File | Description |
-|------|--------------|
-| `Main.java` | Controls the full workflow: read → process → write → sort → benchmark. |
-| `Node.java` | Defines the linked-list node structure (data + pointer). |
-| `LinkedList.java` | Implements the custom singly linked list used for data storage. |
-| `Registration.java` | Represents one student registration record and its demand score. |
-| `FileService.java` | Handles reading `Input.txt` and writing all output files. |
-| `DemandScorer.java` | Applies all scoring rules to compute the Demand Score. |
-| `Comparators.java` | Provides the descending Demand Score comparator. |
-| `Timer.java` | Utility class using `java.time.Clock` to measure runtime durations. |
-| `SelectionSort.java` | Implements Selection Sort algorithm. |
-| `InsertionSort.java` | Implements Insertion Sort algorithm. |
-| `MergeSort.java` | Implements Merge Sort algorithm. |
-| `QuickSort.java` | Implements Quick Sort algorithm. |
-| `Benchmarker.java` | Runs and times all sorting algorithms, generating sorted files. |
-| `Input.txt` | Input data file with 3000+ student registration records. |
+- Implement a **singly linked list** without using Java’s built-in list libraries.  
+- Read registration data from an input file (`Input.txt`).  
+- Calculate a **Demand Score (0–100)** for each record based on fixed rules.  
+- Write processed results to `Output.txt`.  
+- Convert the linked list to arrays and sort by Demand Score in **descending order** using:
+  - Selection Sort  
+  - Insertion Sort  
+  - Merge Sort  
+  - Quick Sort  
+- Measure both **theoretical time complexity (O notation)** and **actual runtime** for each operation.
+
+---
+
+## Demand Score Rules
+
+Each record starts with a base score of **50**, then adjusted by:
+
+| Rule | Condition | Adjustment |
+|------|------------|------------|
+| **Student Class Multiplier** | 1: −25% • 2: −10% • 3: +10% • 4: +25% • 5: +50% | Multiplies the base score |
+| **Time of Day Bonus/Penalty** | 6–8: +5 • 8–10: +10 • 10–12: +5 • 12–14: +0 • 14–16: −5 • 16–20: −10 • After 20: −15 | Adds/subtracts value |
+| **Course ID Rule** | Ends with odd number → +20  •  even number → −10 | Adjusts final score |
+| **Final Output** | Rounded to nearest integer and limited between 0 and 100 | — |
+
+Example:  
+`2015034;CS321;3;10;` → **Demand Score = 60**
+
+---
+
+## Project Architecture
+
+| File | Purpose |
+|------|----------|
+| **Main.java** | Controls the entire workflow: reading, processing, writing, and sorting. |
+| **Node.java** | Defines the node structure used in the linked list (data + next pointer). |
+| **LinkedList.java** | Custom singly linked list implementation used to store registration data. |
+| **Registration.java** | Represents one registration record (StudentID, CourseID, Class, Time, DemandScore). |
+| **FileService.java** | Reads from `Input.txt`, writes processed and sorted data to output files. |
+| **InputValidator.java** | Validates input format and skips invalid lines safely. |
+| **DemandScorer.java** | Calculates Demand Score for each record using the defined rules. |
+| **Comparators.java** | Provides the comparator for sorting (descending by DemandScore). |
+| **Sorter.java** | Interface implemented by all sorting algorithm classes. |
+| **SelectionSort.java** | Implements Selection Sort. |
+| **InsertionSort.java** | Implements Insertion Sort. |
+| **MergeSort.java** | Implements Merge Sort. |
+| **QuickSort.java** | Implements Quick Sort. |
+| **Benchmarker.java** | Measures runtime for each sorting algorithm and generates output files. |
+| **Timer.java** | Uses `java.time.Clock` to measure runtime for reading, processing, and writing. |
+| **Input.txt** | The dataset file containing registration records. |
 
 ---
 
 ## Runtime Analysis
 
-Each phase’s runtime is measured and printed to the console using the **Java Clock API**.
-
-| Operation | Theoretical Complexity | Runtime Method |
-|------------|-----------------------|----------------|
-| Read File | O(n) | Clock |
+| Operation | Theoretical Complexity | Runtime Measured Using |
+|------------|-----------------------|------------------------|
+| Read Input | O(n) | Clock |
 | Process Demand Score | O(n) | Clock |
-| Write File | O(n) | Clock |
+| Write Output | O(n) | Clock |
 | Selection Sort | O(n²) | Clock |
-| Insertion Sort | O(n²) (best O(n)) | Clock |
+| Insertion Sort | O(n²) | Clock |
 | Merge Sort | O(n log n) | Clock |
-| Quick Sort | O(n log n) average (worst O(n²)) | Clock |
+| Quick Sort | O(n log n) average (O(n²) worst) | Clock |
+
+Each phase prints its runtime in milliseconds to the console.
 
 ---
 
-## Sample Workflow
+## Output Files
 
-1. **Read Input** → from `Input.txt`  
-2. **Process Demand Score** → apply all scoring rules  
-3. **Write Output** → to `Output.txt`  
-4. **Convert LinkedList to Array** → for sorting  
-5. **Run 4 Sorting Algorithms** → Selection, Insertion, Merge, Quick  
-6. **Save Sorted Results** → in respective output files  
-7. **Print Runtimes** → for all phases
+| File Name | Description |
+|------------|-------------|
+| **Output.txt** | All records with calculated Demand Scores (unsorted). |
+| **Sorted_Output_SS.txt** | Records sorted (descending) by Selection Sort. |
+| **Sorted_Output_IS.txt** | Records sorted (descending) by Insertion Sort. |
+| **Sorted_Output_MS.txt** | Records sorted (descending) by Merge Sort. |
+| **Sorted_Output_QS.txt** | Records sorted (descending) by Quick Sort. |
 
 ---
 
-## How to Compile and Run
+## Example Input / Output
 
-1. Open a terminal in the `src/` folder.  
-2. Compile all Java files:
-   ```bash
-   javac *.java
+**Input.txt**
