@@ -1,6 +1,7 @@
 # CS210 Project — Student Course Registration Analysis  
 **Prince Sultan University – Data Structures (CS210)**  
 **Developed by:** Shoug Alomran and Layan Bindayel
+
 **Date:** 23/10/2025
 
 ---
