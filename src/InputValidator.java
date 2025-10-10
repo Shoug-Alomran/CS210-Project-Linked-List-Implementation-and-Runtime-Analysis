@@ -13,14 +13,14 @@ public class InputValidator {
     }
 
     // Method to read and validate input file.
-    public static void readAndValidateFile(String input) {
+    public static LinkedList readAndValidateFile(String input) {
         LinkedList registrations = new LinkedList(); // Create instance of Layan's list (LinkedList class).
-        
+
         // Check if file exists and is readable to avoid FileNotFoundException.
         if (!isValidFilePath(input)) {
             System.out.println(
                     "ERROR: File '" + input + "' not found or not readable. Please check that the file exists.");
-            return; // Stop the entire method
+            return registrations; // Stop the entire method
         }
         // If file is found, proceed to the BufferedReader section to actually read the
         // file.
@@ -77,6 +77,7 @@ public class InputValidator {
                     registrations.insertNodeAtTail(reg);
 
                     System.out.println("VALID: " + line);
+                    
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in entry: " + line);
                     continue; // Skip invalid entry
@@ -84,6 +85,6 @@ public class InputValidator {
             }
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
-        }
+        } return registrations;
     }
 }
