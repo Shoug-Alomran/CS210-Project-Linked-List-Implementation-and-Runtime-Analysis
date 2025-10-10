@@ -5,4 +5,7 @@ public class FileService {
         return InputValidator.readAndValidateFile(filename);
     }
     // Task: Method to write array of registrations to Output.txt
+     public static void writeRegistrationsToFile(Registration[] array, String filename) {
+        // TODO: Implement output writing
+    }
 }
