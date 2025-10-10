@@ -46,6 +46,38 @@ public class LinkedList {
     }
 // Task: Method to delete node by value
 
+    public void deleteNodeByValue(Registration data) {
+
+        //Case 1: empty list 
+        if (head == null) {
+            return;
+        }
+
+        //Case 2: if head node is to be deleted 
+        if (head.studData.equals(data)) {
+            head = head.next;
+            size--;
+            return;
+        }
+
+        //Case 3: if any other node is to be deleted 
+        Node prev = head;
+        Node curr = head.next;
+
+        while (curr != null) {
+            if (curr.studData.equals(data)) {
+                prev.next = curr.next;
+                size--;
+                return;
+            }
+
+            prev = curr;
+            curr = curr.next;
+        }
+
+    }
+ 
+
 // Task: Method to search for a node
     public boolean searchKey(Registration data) {
 
