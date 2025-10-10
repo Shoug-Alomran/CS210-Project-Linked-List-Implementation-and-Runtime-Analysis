@@ -14,6 +14,8 @@ public class InputValidator {
 
     // Method to read and validate input file.
     public static void readAndValidateFile(String input) {
+        LinkedList registrations = new LinkedList(); // Create instance of Layan's list (LinkedList class).
+        
         // Check if file exists and is readable to avoid FileNotFoundException.
         if (!isValidFilePath(input)) {
             System.out.println(
@@ -68,6 +70,13 @@ public class InputValidator {
                     validCourses.add(courseID);
                     System.out.println("VALID: " + line);
 
+                    // Create Registration object and add to linked list
+                    Registration reg = new Registration(studentID, courseID, academicLevel, studyTime, 0);
+                    registrations.insertNodeAtTail(reg);
+                    // Add to linked list using Layan's method.
+                    registrations.insertNodeAtTail(reg);
+
+                    System.out.println("VALID: " + line);
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in entry: " + line);
                     continue; // Skip invalid entry
