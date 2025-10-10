@@ -1,14 +1,100 @@
 public class LinkedList {
 // Task: Field to store head node
+
+    Node head;
 // Task: Field to store size of list
+    int size;
 // Task: (Optional) Field to store tail node for faster inserts
+    Node tail;
 
 // Task: Method to insert node at head
+    public void insertNodeAtHead(Registration data) {
+
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            size++;
+
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+        size++;
+
+    }
 // Task: Method to insert node at tail
+
+    public void insertNodeAtTail(Registration data) {
+
+        Node newNode = new Node(data);
+        //Case 1: handle special case (if node is empty)
+        if (head == null) {
+
+            head = newNode;
+            tail = newNode;
+            size++;
+            return;
+        }
+
+        tail.next = newNode;
+        tail = newNode;
+        size++;
+
+    }
 // Task: Method to delete node by value
+
 // Task: Method to search for a node
+    public boolean searchKey(Registration data) {
+
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.studData.equals(data)) {
+                return true;
+            }
+
+            temp = temp.next;
+        }
+
+        return false;
+    }
 // Task: Method to display/traverse all nodes
+
+    public void displayLinkedList() {
+
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.studData);
+            temp = temp.next;
+        }
+    }
 // Task: Method to convert list to array (Registration[])
 
+    public Registration[] convToArray() {
+
+        //count number of nodes 
+        int size = 0;
+        Node temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+
+        //create an array of that size 
+        Registration[] dataArray = new Registration[size];
+
+        //traverse through node to store into array 
+        temp = head;
+        int index = 0;
+        while (temp != null) {
+            dataArray[index++] = temp.studData;
+            temp = temp.next;
+        }
+
+        return dataArray;
+
+    }
 
 }
