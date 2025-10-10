@@ -1,7 +1,8 @@
 public class FileService {
-    
-// Task: Method to read registrations from Input.txt into LinkedList
-// Task: Method to write array of registrations to Output.txt
-// Task: (Optional) Handle malformed lines safely
 
+    // Method to read registrations from Input.txt into LinkedList
+    public static LinkedList readRegistrationsFromFile(String filename) {
+        return InputValidator.readAndValidateFile(filename);
+    }
+    // Task: Method to write array of registrations to Output.txt
 }
