@@ -11,7 +11,8 @@ public class Registration {
         this.courseID = courseID;
         this.academicLevel = academicLevel;
         this.studTime = studTime;
-        this.studDemandScore = 0;// temporary value prior to processing demand score (score hasn't been recorded yet)
+        this.studDemandScore = 0;// temporary value prior to processing demand score (score hasn't been recorded
+                                 // yet)
     }
 
     // Task: Getters and setters for all fields
