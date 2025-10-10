@@ -1,16 +1,14 @@
 public class Node {
-// Task: Field to store Registration data
+    // Task: Field to store Registration data
     Registration studData;
-// Task: Field to store next Node reference
-    Node nextRef;
+    // Task: Field to store next Node reference
+    Node next;
 
-// Task: Constructor to initialize node with Registration
+    // Task: Constructor to initialize node with Registration
 
     public Node(Registration studData) {
         this.studData = studData;
-        this.nextRef = null;
+        this.next = null;
     }
-    
+
 }
-
-

@@ -1,13 +1,9 @@
 public class LinkedList {
-// Task: Field to store head node
-
     Node head;
-// Task: Field to store size of list
     int size;
-// Task: (Optional) Field to store tail node for faster inserts
     Node tail;
 
-// Task: Method to insert node at head
+    // Task: Method to insert node at head
     public void insertNodeAtHead(Registration data) {
 
         Node newNode = new Node(data);
@@ -16,7 +12,6 @@ public class LinkedList {
             head = newNode;
             tail = newNode;
             size++;
-
             return;
         }
 
@@ -25,12 +20,12 @@ public class LinkedList {
         size++;
 
     }
-// Task: Method to insert node at tail
+    // Task: Method to insert node at tail
 
     public void insertNodeAtTail(Registration data) {
 
         Node newNode = new Node(data);
-        //Case 1: handle special case (if node is empty)
+        // Case 1: handle special case (if node is empty)
         if (head == null) {
 
             head = newNode;
@@ -44,23 +39,23 @@ public class LinkedList {
         size++;
 
     }
-// Task: Method to delete node by value
+    // Task: Method to delete node by value
 
     public void deleteNodeByValue(Registration data) {
 
-        //Case 1: empty list 
+        // Case 1: empty list
         if (head == null) {
             return;
         }
 
-        //Case 2: if head node is to be deleted 
+        // Case 2: if head node is to be deleted
         if (head.studData.equals(data)) {
             head = head.next;
             size--;
             return;
         }
 
-        //Case 3: if any other node is to be deleted 
+        // Case 3: if any other node is to be deleted
         Node prev = head;
         Node curr = head.next;
 
@@ -70,15 +65,12 @@ public class LinkedList {
                 size--;
                 return;
             }
-
             prev = curr;
             curr = curr.next;
         }
-
     }
- 
 
-// Task: Method to search for a node
+    // Task: Method to search for a node
     public boolean searchKey(Registration data) {
 
         Node temp = head;
@@ -86,14 +78,12 @@ public class LinkedList {
             if (temp.studData.equals(data)) {
                 return true;
             }
-
             temp = temp.next;
         }
-
         return false;
     }
-// Task: Method to display/traverse all nodes
-
+    
+    // Task: Method to display/traverse all nodes
     public void displayLinkedList() {
 
         Node temp = head;
@@ -102,11 +92,11 @@ public class LinkedList {
             temp = temp.next;
         }
     }
-// Task: Method to convert list to array (Registration[])
 
+    // Task: Method to convert list to array (Registration[])
     public Registration[] convToArray() {
 
-        //count number of nodes 
+        // count number of nodes
         int size = 0;
         Node temp = head;
         while (temp != null) {
@@ -114,19 +104,16 @@ public class LinkedList {
             temp = temp.next;
         }
 
-        //create an array of that size 
+        // create an array of that size
         Registration[] dataArray = new Registration[size];
 
-        //traverse through node to store into array 
+        // traverse through node to store into array
         temp = head;
         int index = 0;
         while (temp != null) {
             dataArray[index++] = temp.studData;
             temp = temp.next;
         }
-
         return dataArray;
-
     }
-
 }
