@@ -15,7 +15,7 @@ public class Registration {
                                  // yet)
     }
 
-    // Task: Getters and setters for all fields
+    // Task: Getters and setters for all 
     public String getStudentID() {
         return studentID;
     }
