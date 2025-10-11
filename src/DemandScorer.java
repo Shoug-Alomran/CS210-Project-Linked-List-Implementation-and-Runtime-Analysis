@@ -3,7 +3,7 @@ public class DemandScorer {
         double score = 50; // Base score
 
         score = applyStudentClassMultiplier(score, reg.getAcademicLevel());
-        score = applyTimePreferenceMultiplier(score, reg.getStudTime());
+        score = applyTimePreferenceMultiplier(score, reg.getStudyTime());
         score = applyCoursePriority(score, reg.getCourseID());
    
         score = Math.round(score); // Round to nearest whole number.
