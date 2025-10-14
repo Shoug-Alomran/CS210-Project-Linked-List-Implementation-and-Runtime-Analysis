@@ -5,7 +5,7 @@ public class Registration {
     private int studyTime; // Field to store time
     private double studDemandScore;
 
-    // Task: Constructor to initialize fields
+    // Constructor to initialize fields
     public Registration(String studentID, String courseID, int academicLevel, int studTime, double studDemandScore) {
         this.studentID = studentID;
         this.courseID = courseID;
@@ -15,7 +15,7 @@ public class Registration {
                                  // yet)
     }
 
-    // Task: Getters and setters for all fields
+    // Getters and setters for all fields
     public String getStudentID() {
         return studentID;
     }
@@ -56,12 +56,11 @@ public class Registration {
         this.studDemandScore = studDemandScore;
     }
 
-    // Task: toString() method to format output line
+    // toString() method to format output line
     @Override
     public String toString() {
         return studentID + ";" + courseID + ";" + academicLevel + ";" + studyTime + ";" + Math.round(studDemandScore)
                 + ";";
     }// Math.round function used to round the demand score to the nearest whole
      // number
-
 }
