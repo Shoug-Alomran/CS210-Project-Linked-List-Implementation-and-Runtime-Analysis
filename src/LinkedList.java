@@ -3,7 +3,7 @@ public class LinkedList {
     int size;
     Node tail;
 
-    // Task: Method to insert node at head
+    // Method to insert node at head
     public void insertNodeAtHead(Registration data) {
 
         Node newNode = new Node(data);
@@ -14,40 +14,34 @@ public class LinkedList {
             size++;
             return;
         }
-
         newNode.next = head;
         head = newNode;
         size++;
 
     }
-    // Task: Method to insert node at tail
 
+    // Method to insert node at tail
     public void insertNodeAtTail(Registration data) {
 
         Node newNode = new Node(data);
         // Case 1: handle special case (if node is empty)
         if (head == null) {
-
             head = newNode;
             tail = newNode;
             size++;
             return;
         }
-
         tail.next = newNode;
         tail = newNode;
         size++;
-
     }
-    // Task: Method to delete node by value
 
+    // Method to delete node by value
     public void deleteNodeByValue(Registration data) {
-
         // Case 1: empty list
         if (head == null) {
             return;
         }
-
         // Case 2: if head node is to be deleted
         if (head.studData.equals(data)) {
             head = head.next;
@@ -58,7 +52,6 @@ public class LinkedList {
         // Case 3: if any other node is to be deleted
         Node prev = head;
         Node curr = head.next;
-
         while (curr != null) {
             if (curr.studData.equals(data)) {
                 prev.next = curr.next;
@@ -70,9 +63,8 @@ public class LinkedList {
         }
     }
 
-    // Task: Method to search for a node
+    // Method to search for a node
     public boolean searchKey(Registration data) {
-
         Node temp = head;
         while (temp.next != null) {
             if (temp.studData.equals(data)) {
@@ -82,10 +74,9 @@ public class LinkedList {
         }
         return false;
     }
-    
-    // Task: Method to display/traverse all nodes
-    public void displayLinkedList() {
 
+    // Method to display/traverse all nodes
+    public void displayLinkedList() {
         Node temp = head;
         while (temp != null) {
             System.out.println(temp.studData);
@@ -93,7 +84,7 @@ public class LinkedList {
         }
     }
 
-    // Task: Method to convert list to array (Registration[])
+    // Method to convert list to array (Registration[])
     public Registration[] convToArray() {
 
         // count number of nodes
@@ -104,10 +95,10 @@ public class LinkedList {
             temp = temp.next;
         }
 
-        // create an array of that size
+        // Create an array of that size
         Registration[] dataArray = new Registration[size];
 
-        // traverse through node to store into array
+        // Traverse through node to store into array
         temp = head;
         int index = 0;
         while (temp != null) {
