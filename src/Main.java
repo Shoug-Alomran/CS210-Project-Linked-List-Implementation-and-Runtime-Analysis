@@ -1,25 +1,38 @@
 public class Main {
     public static void main(String[] args) {
-        // Task: Read input file using FileService
-        // Task: Build LinkedList with Registration data
-        // Task: Write unsorted Output.txt
-        // Task: Run SelectionSort, InsertionSort, MergeSort, QuickSort
-        // Task: Time each sort and save results to files
-        // Task: Print timing summary to console
-
-        // Use your validator to read and validate file
+        // Read and validate input file.
+        // Use InputValidator to read file and build linked list of valid registrations.
         LinkedList registrations = InputValidator.readAndValidateFile("Input.txt");
+        System.out.println("Successfully read " + registrations.size + " registrations.");
 
-        // Calculate demand scores for all registrations
+        // Calculate all demand scores.
+        // Process each registration to compute their demand scores.
         calculateAllDemandScores(registrations);
+        System.out.println("Completed demand score calculations.");
 
-        // Convert LinkedList to array
+        // Layan's part: convert linked list to array.
+        // Layan use convToArray method to prepare for sorting.
         Registration[] array = registrations.convToArray();
+
+        // Write unsorted output.
+        // Save the unsorted data with calculated scores to Output.txt.
+        FileService.writeRegistrationsToFile(array, "Output.txt");
+        System.out.println("Saved unsorted data to Output.txt");
+
+        // Run and time all sorting algorithms.
+        // Use Benchmarker to time each sort and save sorted results.
+        System.out.println("Starting sorting algorithms...");
+        Benchmarker.runAllSorts(array);
+        System.out.println("All sorting completed and results saved.");
     }
 
-    // Method to calculate demand scores for all registrations in the linked list
+    // Calculate scores for all registrations.
+    // Traverse Layan's linked list and apply demand scoring to each node.
     public static void calculateAllDemandScores(LinkedList registrations) {
-        // Loop through all registrations and compute their scores
-        // Traverse linked list
+        Node current = registrations.head; // Start at first node in Layan's list.
+        while (current != null) { // Loop until end of list.
+            DemandScorer.computeDemandScore(current.studData); // Calculate score using my DemandScorer.
+            current = current.next; // Move to next node in Layan's list.
+        }
     }
 }
