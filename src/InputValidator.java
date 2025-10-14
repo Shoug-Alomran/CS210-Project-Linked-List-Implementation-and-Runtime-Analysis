@@ -68,14 +68,11 @@ public class InputValidator {
                     // If all validations pass, add courseID to validCourses Hashset. (Previously it
                     // was empty).
                     validCourses.add(courseID);
-                    System.out.println("VALID: " + line);
 
                     // Create Registration object and add to linked list.
                     Registration reg = new Registration(studentID, courseID, academicLevel, studyTime, 0);
                     registrations.insertNodeAtTail(reg);
-
                     System.out.println("VALID: " + line);
-
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in entry: " + line);
                     continue; // Skip invalid entry.
