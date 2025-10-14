@@ -70,21 +70,20 @@ public class InputValidator {
                     validCourses.add(courseID);
                     System.out.println("VALID: " + line);
 
-                    // Create Registration object and add to linked list
+                    // Create Registration object and add to linked list.
                     Registration reg = new Registration(studentID, courseID, academicLevel, studyTime, 0);
-                    registrations.insertNodeAtTail(reg);
-                    // Add to linked list using Layan's method.
                     registrations.insertNodeAtTail(reg);
 
                     System.out.println("VALID: " + line);
-                    
+
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in entry: " + line);
-                    continue; // Skip invalid entry
+                    continue; // Skip invalid entry.
                 }
             }
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
-        } return registrations;
+        }
+        return registrations;
     }
 }
