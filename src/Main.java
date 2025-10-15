@@ -3,6 +3,7 @@ public class Main {
         // Read and validate input file.
         // Use InputValidator to read file and build linked list of valid registrations.
         LinkedList registrations = InputValidator.readAndValidateFile("Input.txt");
+        System.out.println();
         System.out.println("Successfully read " + registrations.size + " registrations.");
 
         // Calculate all demand scores.
