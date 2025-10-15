@@ -50,7 +50,7 @@ public class InputValidator {
                         continue; // Skip invalid entry
                     }
                     // Validate studentId.
-                    if (studentID.length() != 7) { // Assuming student ID should be exactly 7 characters.
+                    if (studentID.length() != 7 && studentID.length() != 5 ) { // Assuming student ID should be exactly 7 characters.
                         System.out.println("Invalid student ID in entry: " + line);
                         continue; // Skip invalid entry
                     }
