@@ -2,15 +2,15 @@ public class Registration {
     private String studentID;
     private String courseID;
     private int academicLevel; // Field to store class/group
-    private int studyTime; // Field to store time
+    private int regTime; // Field to store time
     private double studDemandScore;
 
     // Constructor to initialize fields
-    public Registration(String studentID, String courseID, int academicLevel, int studTime, double studDemandScore) {
+    public Registration(String studentID, String courseID, int academicLevel, int regTime, double studDemandScore) {
         this.studentID = studentID;
         this.courseID = courseID;
         this.academicLevel = academicLevel;
-        this.studyTime = studTime;
+        this.regTime = regTime;
         this.studDemandScore = 0;// temporary value prior to processing demand score (score hasn't been recorded
                                  // yet)
     }
@@ -40,12 +40,12 @@ public class Registration {
         this.academicLevel = academicLevel;
     }
 
-    public int getStudyTime() {
-        return studyTime;
+    public int getRegTime() {
+        return regTime;
     }
 
-    public void setStudyTime(int studTime) {
-        this.studyTime = studTime;
+    public void setRegTime(int regTime) {
+        this.regTime = regTime;
     }
 
     public double getStudDemandScore() {
@@ -59,7 +59,7 @@ public class Registration {
     // toString() method to format output line
     @Override
     public String toString() {
-        return studentID + ";" + courseID + ";" + academicLevel + ";" + studyTime + ";" + Math.round(studDemandScore)
+        return studentID + ";" + courseID + ";" + academicLevel + ";" + regTime + ";" + Math.round(studDemandScore)
                 + ";";
     }// Math.round function used to round the demand score to the nearest whole
      // number

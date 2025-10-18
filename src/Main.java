@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         // Read and validate input file.
@@ -25,6 +27,12 @@ public class Main {
         System.out.println("Starting sorting algorithms...");
         Benchmarker.runAllSorts(array);
         System.out.println("All sorting completed and results saved.");
+
+        // Call comparators class to sort based on different criteria
+        Arrays.sort(array, Comparators.by_ID);
+        Arrays.sort(array, Comparators.by_CourseCode);
+        Arrays.sort(array, Comparators.by_Level);
+
     }
 
     // Calculate scores for all registrations.
@@ -36,4 +44,5 @@ public class Main {
             current = current.next; // Move to next node in Layan's list.
         }
     }
+
 }
