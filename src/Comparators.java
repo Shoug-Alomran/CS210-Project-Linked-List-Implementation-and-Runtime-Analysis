@@ -1,12 +1,12 @@
 import java.util.Comparator;
 
 public final class Comparators {
-    // Task: Private constructor to prevent instantiation (utility class)
+    // Private constructor to prevent instantiation (utility class)
 
     private Comparators() {
     }
 
-    // Task: Comparator to sort Registration by studentId (ascending)
+    // Comparator to sort Registration by studentId (ascending)
     public static final Comparator<Registration> by_ID = new Comparator<Registration>() {
         @Override
         public int compare(Registration r1, Registration r2) {
@@ -14,7 +14,7 @@ public final class Comparators {
         }
     };
 
-    // Task: Comparator to sort Registration by courseCode (A–Z)
+    // Comparator to sort Registration by courseCode (A–Z)
     public static final Comparator<Registration> by_CourseCode = new Comparator<Registration>() {
         @Override
         public int compare(Registration r1, Registration r2) {
@@ -37,10 +37,10 @@ public final class Comparators {
         }
     };
 
-    // Task: Static helper to get comparator by user choice (e.g., "id", "name",
+    // Static helper to get comparator by user choice (e.g., "id", "name",
     // "course")
     public static Comparator<Registration> getComparator(String criterion) {
-        switch (criterion.toLowerCase()) {// Case insensitive matching
+        switch (criterion.toLowerCase()) { // Case insensitive matching
             case "id":
                 return by_ID;
             case "course":
