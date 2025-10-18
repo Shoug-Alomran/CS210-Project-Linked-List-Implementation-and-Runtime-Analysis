@@ -40,7 +40,7 @@ public final class Comparators {
 
         // Task: Static helper to get comparator by user choice (e.g., "id", "name", "course")
     public static Comparator<Registration> getComparator(String criterion) {
-        switch (criterion.toLowerCase()) {
+        switch (criterion.toLowerCase()) {//Case insensitive matching 
             case "id":
                 return by_ID;
             case "name":
