@@ -9,20 +9,20 @@ public final class Comparators {
     // Task: Comparator to sort Registration by studentId (ascending)
     
     public static final Comparator<Registration> by_ID = new Comparator<Registration>() {
-            @Override
-            public int compare(Registration r1, Registration r2) {
-                return r1.getStudentID().compareTo(r2.getStudentID());
-            }
-        } ;
-    
-      // Task: Comparator to sort Registration by name (A–Z)
+        @Override
+        public int compare(Registration r1, Registration r2) {
+            return r1.getStudentID().compareTo(r2.getStudentID());
+        }
+    };
+
+    // Task: Comparator to sort Registration by name (A–Z)
     public static final Comparator<Registration> by_Name = new Comparator<Registration>() {
-            @Override
-            public int compare(Registration r1, Registration r2) {
-                // Assuming Registration has a getName() method
-                return r1.getStudentID().compareTo(r2.getStudentID());
-            }
-        } ;
+        @Override
+        public int compare(Registration r1, Registration r2) {
+            // Assuming Registration has a getName() method
+            return r1.getStudentID().compareTo(r2.getStudentID());
+        }
+    };
     // Task: Comparator to sort Registration by courseCode (A–Z)
     public static final Comparator<Registration> by_Course = new Comparator<Registration>() {
             @Override
@@ -53,7 +53,9 @@ public final class Comparators {
                     throw new IllegalArgumentException("Unknown sorting criterion: " + criterion);  
             }
         }
+    
     }
+
 
 
 
