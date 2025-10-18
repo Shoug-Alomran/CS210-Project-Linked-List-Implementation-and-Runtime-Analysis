@@ -21,7 +21,7 @@ public final class Comparators {
             return r1.getCourseID().compareTo(r2.getCourseID());
         }
     };
-    // Task: Comparator to sort Registration by academicLevel (ascending)
+    // Comparator to sort Registration by academicLevel (ascending)
     public static final Comparator<Registration> by_Level = new Comparator<Registration>() {
         @Override
         public int compare(Registration r1, Registration r2) {
