@@ -1,5 +1,5 @@
 public class Timer {
-    // Private variables for saftey, no other class can access these directly and effect the elapsed time.
+    // Private variables for safety, no other class can access these directly and effect the elapsed time.
     private long startTime;
     private long endTime;
 
@@ -18,4 +18,3 @@ public class Timer {
         return endTime - startTime;
     }
 }
-
