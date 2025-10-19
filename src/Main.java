@@ -9,6 +9,7 @@ public class Main {
         timer.start();
         LinkedList registrations = InputValidator.readAndValidateFile("Input.txt");
         timer.stop();
+        System.out.println();
         System.out.println("File reading completed in: " + timer.getElapsedTimeMillis() + " ms");
         System.out.println("Successfully read " + registrations.size + " registrations.");
         System.out.println();
