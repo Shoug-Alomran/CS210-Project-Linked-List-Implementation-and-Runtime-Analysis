@@ -1,7 +1,9 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Timer timer = new Timer();
-        
+
         // Time reading operation
         System.out.println("Starting file reading...");
         timer.start();
@@ -35,6 +37,34 @@ public class Main {
         System.out.println("Starting sorting algorithms...");
         Benchmarker.runAllSorts(array);
         System.out.println("All sorting completed and results saved.");
+        System.out.println();
+
+        // Additional sorting using comparators (Not required but useful)
+        System.out.println("\n--- ADDITIONAL COMPARATOR SORTING ---");
+
+        // Sort by Student ID
+        Registration[] idSorted = registrations.convToArray();
+        Arrays.sort(idSorted, Comparators.by_ID);
+        FileService.writeRegistrationsToFile(idSorted, "Sorted_By_ID.txt");
+        System.out.println("Saved student ID sorted data to Sorted_By_ID.txt");
+
+        // Sort by Course Code
+        Registration[] courseSorted = registrations.convToArray();
+        Arrays.sort(courseSorted, Comparators.by_CourseCode);
+        FileService.writeRegistrationsToFile(courseSorted, "Sorted_By_Course.txt");
+        System.out.println("Saved course code sorted data to Sorted_By_Course.txt");
+
+        // Sort by Academic Level
+        Registration[] levelSorted = registrations.convToArray();
+        Arrays.sort(levelSorted, Comparators.by_Level);
+        FileService.writeRegistrationsToFile(levelSorted, "Sorted_By_Level.txt");
+        System.out.println("Saved academic level sorted data to Sorted_By_Level.txt");
+
+        // Sort by Registration Time
+        Registration[] timeSorted = registrations.convToArray();
+        Arrays.sort(timeSorted, Comparators.by_RegTime);
+        FileService.writeRegistrationsToFile(timeSorted, "Sorted_By_Time.txt");
+        System.out.println("Saved registration time sorted data to Sorted_By_Time.txt");
     }
 
     // Calculate scores for all registrations
