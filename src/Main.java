@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Starting file reading...");
         timer.start();
         LinkedList registrations = InputValidator.readAndValidateFile("Input.txt");
-        timer.stop();
+        timer.stop(); // This timer times the file reading only
         System.out.println();
         System.out.println("File reading completed in: " + timer.getElapsedTimeMillis() + " ms");
         System.out.println("Successfully read " + registrations.size + " registrations.");
@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Starting demand score calculations...");
         timer.start();
         calculateAllDemandScores(registrations);
-        timer.stop();
+        timer.stop(); // This timer times the demand score calculations only
         System.out.println("Demand score calculations completed in: " + timer.getElapsedTimeMillis() + " ms");
         System.out.println();
 
@@ -29,7 +29,7 @@ public class Main {
         System.out.println("Writing unsorted data to file...");
         timer.start();
         FileService.writeRegistrationsToFile(array, "Output.txt");
-        timer.stop();
+        timer.stop(); // This timer times the file writing only
         System.out.println("File writing completed in: " + timer.getElapsedTimeMillis() + " ms");
         System.out.println("Saved unsorted data to Output.txt");
         System.out.println();
