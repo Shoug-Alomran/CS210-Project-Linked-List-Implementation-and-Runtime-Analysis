@@ -53,5 +53,4 @@ public final class Comparators {
                 throw new IllegalArgumentException("Unknown sorting criterion: " + criterion);
         }
     }
-
 }
