@@ -1,0 +1,60 @@
+site_name: CS210 Project - Linked List Implementation and Runtime Analysis
+site_url: https://shoug-alomran.github.io/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis/
+site_author: Shoug Fawaz Alomran & Layan Hesham Bindayel
+site_description: Analysis of sorting algorithms and runtime performance using a custom linked list implementation.
+
+repo_url: https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis
+repo_name: CS210-Project-Linked-List-Implementation-and-Runtime-Analysis
+edit_uri: ""
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/styles.css
+
+extra:
+  generator: false
+
+use_directory_urls: true
