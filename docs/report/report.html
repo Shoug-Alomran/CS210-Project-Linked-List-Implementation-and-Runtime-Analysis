@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS210 Project Report - Course Registration Analysis System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .university-logo {
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        opacity: 0.95;
+    }
+
+    .course-info {
+        margin: 20px 0;
+        font-size: 0.95em;
+    }
+
+    .authors {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .author {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 40px;
+    }
+
+    h2 {
+        color: #1e3c72;
+        font-size: 1.8em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #2a5298;
+    }
+
+    h3 {
+        color: #2a5298;
+        font-size: 1.3em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        color: #3d5a80;
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    .abstract {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-left: 4px solid #2a5298;
+        margin: 30px 0;
+        font-style: italic;
+    }
+
+    ul, ol {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .phase-list {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    thead {
+        background-color: #2a5298;
+        color: white;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    tbody tr:hover {
+        background-color: #e9ecef;
+    }
+
+    .code-block {
+        background-color: #f4f4f4;
+        border-left: 4px solid #2a5298;
+        padding: 15px;
+        margin: 20px 0;
+        overflow-x: auto;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+        border-radius: 3px;
+    }
+
+    .code-block code {
+        display: block;
+        white-space: pre;
+        font-family: 'Courier New', monospace;
+        line-height: 1.4;
+    }
+
+    pre {
+        margin: 0;
+    }
+
+    .highlight {
+        background-color: #fff3cd;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
+    .complexity {
+        display: inline-block;
+        background-color: #e7f3ff;
+        color: #0066cc;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-weight: 600;
+    }
+
+    .section-intro {
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .criteria-box {
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-left: 4px solid #28a745;
+    }
+
+    .multiplier-list {
+        margin-left: 20px;
+    }
+
+    .multiplier-list li {
+        margin-bottom: 10px;
+    }
+
+    .flow-section {
+        margin: 30px 0;
+    }
+
+    footer {
+        background-color: #2a5298;
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+    }
+
+    .toc {
+        background-color: #f8f9fa;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        border-bottom: none;
+        font-size: 1.5em;
+    }
+
+    .toc ul {
+        list-style-type: none;
+        margin-left: 0;
+    }
+
+    .toc li {
+        margin-bottom: 8px;
+    }
+
+    .toc a {
+        color: #2a5298;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
+    .reference-link {
+        color: #0066cc;
+        text-decoration: none;
+        word-break: break-all;
+    }
+
+    .reference-link:hover {
+        text-decoration: underline;
+    }
+
+    @media print {
+        body {
+            background-color: white;
+        }
+        .container {
+            box-shadow: none;
+        }
+        header {
+            background: #1e3c72;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="university-logo">
+                <h1>College of Computer and Information Sciences (CCIS)</h1>
+            </div>
+            <h1>CS210: Data Structures and Algorithms</h1>
+            <div class="subtitle">Developing an Intelligent System for Students' Course Registration Analysis</div>
+            <div class="course-info">
+                <strong>Course Instructor:</strong> Dr. Najla Althuniyan<br>
+                <strong>Section #:</strong> 951
+            </div>
+            <div class="authors">
+                <div class="author"><strong>LAYAN HESHAM RASHED BINDAYEL</strong> - 223410104</div>
+                <div class="author"><strong>SHOUG FAWAZ ABDULLAH ALOMRAN</strong> - 223410392</div>
+            </div>
+        </header>
+
+```
+    <main>
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#system-design">High-Level Solution / System Design Overview</a></li>
+                <li><a href="#performance-analysis">Asymptotic Performance Analysis</a></li>
+                <li><a href="#runtime-measurement">Runtime Measurement</a></li>
+                <li><a href="#interpretation">Interpretation of Results</a></li>
+                <li><a href="#teamwork">Teamwork Contribution and Coordination</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#references">References and Resources</a></li>
+                <li><a href="#appendix-a">Appendix A: Flow Chart Illustration</a></li>
+                <li><a href="#appendix-b">Appendix B: Full Java Code Implementation</a></li>
+                <li><a href="#appendix-c">Appendix C: Full Run Pictures</a></li>
+            </ul>
+        </nav>
+
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <div class="abstract">
+                <p>This project designed an intelligent system for managing students' course registration records at Prince Sultan University, predicting course demand through data structures such as linked lists and arrays as well as sorting algorithms. The system stores records in a self-developed linked list and has four algorithms for sorting—Selection Sort, Insertion Sort, Merge Sort, and Quick Sort - to compare their time complexity performance.</p>
+                
+                <p>The outcomes were according to theoretical time complexities in the sense that Merge Sort and Quick Sort O(n log n) had a huge margin over Selection and Insertion Sorts O(n²) when given a database with more than 3,000 records. The project amply justifies the importance of algorithm choice on performance by confirming that computationally intensive algorithms like Merge and Quick Sort are best suited for efficient management of large data.</p>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>At the very foundation of programming is a simple but powerful necessity: sorting things out. Sorting is one of the most useful tools for a programmer, taking jumbled data and turning it into organized information that is easy to locate, examine, and maximize. For any code writer, having knowledge of the different ways to sort isn't abstract—it's practical. Knowing which technique to employ can be the difference between a speedy application and a slow one, particularly as data volume increases.</p>
+
+            <p>This project answers one central question of this field: in practice, how do different sorting algorithms work? We're bridging theory and practice by comparing how long it takes to run each one. The goal is to demonstrate that an algorithm's inherent complexity has a direct impact on real-world speed, and how our choices as programmers affect the behavior of a program.</p>
+
+            <p>To achieve this, we designed a special list to manage the enrollments of the students into courses. We took the data and sorted it four times through regular sorts: the inefficient but simple Selection and Insertion Sorts, and the more sophisticated divide-and-conquer Merge Sort and Quick Sort. We also timed each one in order to see how their theoretical performance stacked up against their actual speed. Ultimately, this project serves as a practical example.</p>
+        </section>
+
+        <section id="system-design">
+            <h2>High-Level Solution / System Design Overview</h2>
+            <p class="section-intro">This application is meant to develop a Prince Sultan University-specific system that takes the record of the student's course registration and computes the demand for each course accordingly. Additionally, this system undergoes three major phases:</p>
+
+            <div class="phase-list">
+                <h3>Data Collection Phase</h3>
+                <p>The system begins this phase by gathering the records of student course registration retrieved from Prince Sultan University's database, which has approximately 3000 entries. Each record has the student's basic information like their ID number, course enrolling, identified by its course ID, study level at the moment, and the enrollment time.</p>
+                
+                <p>In addition, the system carefully checks and reviews each record to ensure the information is correct and complete, then starts sorting and formatting it in a readable format. This provides the system with a strong foundation in its capacity to effectively understand and analyze students' requests in order to ascertain course demand and trends, critical to inform future-stage decision-making.</p>
+            </div>
+
+            <div class="phase-list">
+                <h3>Processing Phase (Demand Score Calculation)</h3>
+                <p>For each node the demandScorer calculates a certain score for each student based on 4 criteria:</p>
+
+                <div class="criteria-box">
+                    <h4>1. Base Score: 50</h4>
+                    <p>This represents the initial score each student starts with.</p>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>2. Class Multiplier</h4>
+                    <p>The base score is multiplied by a factor depending on the current grade level of the students:</p>
+                    <ul class="multiplier-list">
+                        <li><strong>Freshman:</strong> Base score × 0.75 (decreased by 25%)</li>
+                        <li><strong>Sophomore:</strong> Base score × 0.90 (decreased by 10%)</li>
+                        <li><strong>Junior:</strong> Base score × 1.1 (increased by 10%)</li>
+                        <li><strong>Senior:</strong> Base score × 1.25 (increased by 25%)</li>
+                        <li><strong>Graduate:</strong> Base score × 1.5 (increased by 50%)</li>
+                    </ul>
+                    <p>Therefore, the system ensures that high priority is assigned to nearly graduated students or graduates and low priority to fresh students, who are fortunate enough to have additional time to register courses in future semesters.</p>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>3. Time of Registration</h4>
+                    <p>The demand score of students is highly determined by when they register for a given course. Students who choose to register early will be given bonus points, while students who register late will be penalized in relative sequence:</p>
+                    <ul class="multiplier-list">
+                        <li><strong>6:00-8:00 AM:</strong> +5 points bonus</li>
+                        <li><strong>8:00-10:00 AM (peak time):</strong> +10 points bonus</li>
+                        <li><strong>12:00-2:00 PM:</strong> No penalty or bonuses</li>
+                        <li><strong>2:00-4:00 PM:</strong> -5 points penalty</li>
+                        <li><strong>4:00-8:00 PM:</strong> -10 points penalty</li>
+                        <li><strong>After 8:00 PM:</strong> -15 points or more penalty</li>
+                    </ul>
+                </div>
+
+                <div class="criteria-box">
+                    <h4>4. Course ID Priorities</h4>
+                    <p>This measure assigns greater weight to certain courses over others:</p>
+                    <ul class="multiplier-list">
+                        <li><strong>High-priority courses:</strong> Course code ends with an odd number (e.g., CS311) - adds +20 points bonus</li>
+                        <li><strong>Low-priority courses:</strong> Course code ends with an even number (e.g., CS210) - deducts -10 points penalty</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-list">
+                <h3>Documentation (Writing) Phase</h3>
+                <p>Once all the data has been fully analyzed, examined, and processed based on the above criteria, the system writes the final results in a new file. It then proceeds to update each student's record with his or her own demand score, which is a measure of how highly demanded or popular a given course happens to be.</p>
+                
+                <p>It then, after storing the updated student records, notifies students that their registration requests have been processed and results can be viewed. It leaves the data unsorted at this time, allowing for the possibility of future performance testing using sorting algorithms.</p>
+                
+                <p>Hence, these phases emphasize how the prototype builds records data and transforms it into beneficial information by way of analyzing demand that enables smart decision making on the registration system. These comprise enhanced course capacity and reduced overcrowding, timetabling properly, and effective future planning with resources being assigned and utilized based on the demand of the students.</p>
+            </div>
+
+            <p>Overall, it results in a more efficient way of course registration management while enhancing the student experience with a data-driven and intuitive registration system.</p>
+        </section>
+
+        <section id="performance-analysis">
+            <h2>Asymptotic Performance Analysis</h2>
+            
+            <h3>The Writing and Reading Running Time</h3>
+            <p>The file reading and writing operations have a linear time complexity of <span class="complexity">O(n)</span>, where n is the number of registrations. Each record is processed exactly once during reading, and each record is written exactly once during the output phase.</p>
+
+            <h3>The Processing (Demand Score Computation) Run Time</h3>
+            <p>The demand score calculation for all registrations has a time complexity of <span class="complexity">O(n)</span>. The system iterates through each node in the linked list exactly once, performing a constant-time calculation for each student's demand score based on the four criteria.</p>
+
+            <h3>The Sorting Running Time</h3>
+            
+            <h4>Selection Sort</h4>
+            <p>Selection Sort has a time complexity of <span class="complexity">O(n²)</span>. The algorithm uses two nested loops: the outer loop runs n times, and for each iteration, the inner loop searches through the remaining unsorted elements to find the maximum value. This results in approximately n²/2 comparisons.</p>
+            <div class="code-block">
+                Time Complexity: T(n) = n + n + n² + n² + n² + 3n + c
+                Simplified: T(n) = 3n² + 5n + c
+                Big O Notation: O(n²)
+            </div>
+
+            <h4>Insertion Sort</h4>
+            <p>Insertion Sort also has a time complexity of <span class="complexity">O(n²)</span> in the worst case. Starting from the second element, each element is compared with all elements to its left and inserted in the correct position. In the worst case (reverse sorted array), this results in n²/2 comparisons.</p>
+            <div class="code-block">
+                Time Complexity: O(n²) in worst case
+                Best Case: O(n) when array is already sorted
+            </div>
+
+            <h4>Merge Sort</h4>
+            <p>Merge Sort has a time complexity of <span class="complexity">O(n log n)</span>. The algorithm recursively divides the array into two halves until base cases are reached, then merges the sorted halves. The division creates log n levels, and each level requires O(n) work to merge.</p>
+            <div class="code-block">
+                Time Complexity: T(n) = 2T(n/2) + O(n)
+                Solution: T(n) = O(n log n)
+                Space Complexity: O(n) for auxiliary arrays
+            </div>
+
+            <h4>Quick Sort</h4>
+            <p>Quick Sort has an average time complexity of <span class="complexity">O(n log n)</span>. The algorithm selects a pivot element and partitions the array around it, then recursively sorts the partitions. With good pivot selection, the array is divided roughly in half at each level, creating log n levels with O(n) work per level.</p>
+            <div class="code-block">
+                Average Time Complexity: O(n log n)
+                Worst Case: O(n²) (when pivot is always smallest/largest)
+                Space Complexity: O(log n) for recursion stack
+            </div>
+        </section>
+
+        <section id="runtime-measurement">
+            <h2>Runtime Measurement</h2>
+            <p>The following table presents the actual runtime measurements for all operations performed by the system on a dataset of <strong>3,432 registrations</strong>:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Theoretical Complexity</th>
+                        <th>Actual Runtime (ms)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>File Reading</td>
+                        <td><span class="complexity">O(n)</span></td>
+                        <td><strong>106</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Demand Score Calculation (Processing)</td>
+                        <td><span class="complexity">O(n)</span></td>
+                        <td><strong>98</strong></td>
+                    </tr>
+                    <tr>
+                        <td>File Writing (Unsorted)</td>
+                        <td><span class="complexity">O(n)</span></td>
+                        <td><strong>48</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Selection Sort</td>
+                        <td><span class="complexity">O(n²)</span></td>
+                        <td><strong>45</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Insertion Sort</td>
+                        <td><span class="complexity">O(n²)</span></td>
+                        <td><strong>26</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Merge Sort</td>
+                        <td><span class="complexity">O(n log n)</span></td>
+                        <td><strong>17</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Quick Sort</td>
+                        <td><span class="complexity">O(n log n)</span></td>
+                        <td><strong>22</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="interpretation">
+            <h2>Interpretation of Results</h2>
+            <p>The results in the runtime table were obtained using a dataset of 3,432 registrations. Stating the dataset is significant because it places the measured runtimes in context and enables the performance results to be fairly interpreted. Since algorithmic efficiency depends on input size, reporting that all timings were measured with 3,432 records shows that analysis was conducted under realistic and standard conditions.</p>
+
+            <p>This also allows fair comparison between the sorting algorithms and makes it easier to reproduce in the event that the same dataset is used again. The results clearly demonstrate the practical impact of theoretical time complexity:</p>
+
+            <ul>
+                <li><strong>Linear operations (O(n)):</strong> File reading, demand score calculation, and file writing all completed in under 110ms, demonstrating efficient linear-time performance.</li>
+                <li><strong>Quadratic algorithms (O(n²)):</strong> Selection Sort (45ms) and Insertion Sort (26ms) performed reasonably well on this dataset size, though their performance would degrade significantly with larger datasets.</li>
+                <li><strong>Linearithmic algorithms (O(n log n)):</strong> Merge Sort (17ms) and Quick Sort (22ms) showed superior performance, confirming their efficiency for larger datasets. These algorithms are clearly the best choice for production systems handling thousands of records.</li>
+            </ul>
+
+            <p>The results validate the theoretical complexity analysis and demonstrate why algorithm selection is crucial for system performance, especially as data scales.</p>
+        </section>
+
+        <section id="teamwork">
+            <h2>Teamwork Contribution and Coordination</h2>
+            <p>This project was completed in teamwork by Shoug Alomran and Layan Bindayel under the supervision of Dr. Najla Althuniyan. The two members worked together during the development, keeping each other posted and sharing the responsibilities to ensure smooth flow and integration.</p>
+
+            <h3>Layan Bindayel</h3>
+            <p>Layan coordinated and organized the project. She created the report template, drew up the document outline, and divided the work evenly between the two members. Layan did the implementation of the lower-level system components, including:</p>
+            <ul>
+                <li>Node.java</li>
+                <li>LinkedList.java</li>
+                <li>FileService.java</li>
+                <li>Comparators.java</li>
+            </ul>
+            <p>Layan wrote the High-Level Solution and Asymptotic Performance Analysis section of the report, explaining the overall design and theoretical performance of the algorithms.</p>
+
+            <h3>Shoug Alomran</h3>
+            <p>Shoug completed the analysis and runtime components of the project. She implemented:</p>
+            <ul>
+                <li>Input Validator Class</li>
+                <li>Demand Scorer Class</li>
+                <li>Sorting algorithms (SelectionSort, InsertionSort, MergeSort, and QuickSort)</li>
+                <li>Bench Marker Class</li>
+                <li>Timer Class</li>
+            </ul>
+            <p>Shoug also completed the Runtime Measurement section of the report, including measuring actual runtimes, generating tables, and including screenshots to illustrate the performance of the system.</p>
+
+            <h3>Collaborative Work</h3>
+            <p>Both partners collaborated on Main Class, bringing all components together in one program. Layan did data input and list integration, while Shoug did processing, sorting, and benchmarking phases. Together, they tested, debugged, and validated the entire system, demonstrating overall teamwork, coordination, and fair contribution.</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>In essence, the results of this project confirmed that the algorithms used behaved as theoretical and empirical expectations. Runtime was utilized as a metric to determine that Merge Sort and Quick Sort were the fastest in terms of runtime because of their sound O(n log n) complexity, with Selection Sort and Insertion Sort being much slower, as would be expected from their O(n²) complexity. That theoretical consideration would match actual results in such a manner ensures system implementation and design correctness and optimality.</p>
+
+            <p>Along the way, we were taught a valuable lesson in the trade-off between simplicity and efficiency. The more straightforward algorithms that we have such as Selection Sort and Insertion Sort are easier to comprehend and implement but thus adequate for small data or teaching purposes. Their performance is traded off, however, with larger input size, to the more complicated divide-and-conquer approach used by Merge Sort and Quick Sort.</p>
+
+            <p>This project expressed extremely well the direct relation of algorithmic efficiency to program performance in real-world applications. The system can be adapted to take actual registration data directly from university databases to analyze live course demand patterns in the future.</p>
+
+            <p>Any other features, such as the graphical user interface to display the demand scores, machine verification of the input data, or inclusion of yet another complicated algorithm like Heap Sort or Counting Sort, would also make it all the more performance-driven and user-friendly. Overall, the project accomplished what it intended to do—coming up with an effective system that demonstrates how an algorithm's design is incorporated into data structures and run-time behavior in the real world for a learning context.</p>
+        </section>
+
+        <section id="references">
+            <h2>References and Resources</h2>
+            <ol>
+                <li>Alomran, S., & Bindayel, L. (2025). <em>CS210 Project — Student Course Registration Analysis</em> [Computer software]. GitHub. <a href="https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis" class="reference-link" target="_blank">https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis</a></li>
+                <li>GeeksforGeeks. (n.d.). <em>Sorting Algorithms – Complete Guide</em>. Retrieved October 2025. <a href="https://www.geeksforgeeks.org/sorting-algorithms/" class="reference-link" target="_blank">https://www.geeksforgeeks.org/sorting-algorithms/</a></li>
+                <li>W3Schools. (n.d.). <em>Java BufferedWriter</em>. Retrieved October 2025. <a href="https://www.w3schools.com/java/java_bufferedwriter.asp" class="reference-link" target="_blank">https://www.w3schools.com/java/java_bufferedwriter.asp</a></li>
+                <li>W3Schools. (n.d.). <em>Java BufferedReader</em>. Retrieved October 2025. <a href="https://www.w3schools.com/java/java_bufferedreader.asp" class="reference-link" target="_blank">https://www.w3schools.com/java/java_bufferedreader.asp</a></li>
+                <li>W3Schools. (n.d.). <em>Java Files</em>. Retrieved October 2025. <a href="https://www.w3schools.com/java/java_files.asp" class="reference-link" target="_blank">https://www.w3schools.com/java/java_files.asp</a></li>
+                <li>Alsomali, Y., & Alsubaie, H. (n.d.). <em>Prince Sultan University Parking Intelligent System Report</em>. CS210: Data Structures and Algorithms, Dr. Najla Althuniyan, Prince Sultan University.</li>
+            </ol>
+        </section>
+
+        <section id="appendix-a">
+            <h2>Appendix A: Flow Chart Illustration</h2>
+            <div style="background-color: #f8f9fa; padding: 30px; text-align: center; border: 2px dashed #6c757d; border-radius: 5px; margin: 20px 0;">
+                <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px;"><strong>Flow Chart Image Placeholder</strong></p>
+                <p style="color: #6c757d;">System workflow diagram showing the three main phases:</p>
+                <ul style="list-style: none; color: #6c757d; text-align: left; display: inline-block;">
+                    <li>→ Data Collection Phase</li>
+                    <li>→ Processing Phase (Demand Score Calculation)</li>
+                    <li>→ Documentation (Writing) Phase</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="appendix-b">
+            <h2>Appendix B: Full Java Code Implementation</h2>
+
+            <h3>Main Class</h3>
+            <pre class="code-block"><code>import java.util.Arrays;
+```
+
+public class Main {
+public static void main(String[] args) {
+Timer timer = new Timer();
+
+```
+    // Time reading operation
+    System.out.println("Starting file reading...");
+    timer.start();
+    LinkedList registrations = InputValidator.readAndValidateFile("Input.txt");
+    timer.stop(); // This timer times the file reading only
+    System.out.println();
+    System.out.println("File reading completed in: " + timer.getElapsedTimeMillis() + " ms");
+    System.out.println("Successfully read " + registrations.size + " registrations.");
+    System.out.println();
+
+    // Time processing operation
+    System.out.println("Starting demand score calculations...");
+    timer.start();
+    calculateAllDemandScores(registrations);
+    timer.stop(); // This timer times the demand score calculations only
+    System.out.println("Demand score calculations completed in: " + timer.getElapsedTimeMillis() + " ms");
+    System.out.println();
+
+    // Convert linked list to array
+    Registration[] array = registrations.convToArray();
+
+    // Time writing operation
+    System.out.println("Writing unsorted data to file...");
+    timer.start();
+    FileService.writeRegistrationsToFile(array, "Output.txt");
+    timer.stop(); // This timer times the file writing only
+    System.out.println("File writing completed in: " + timer.getElapsedTimeMillis() + " ms");
+    System.out.println("Saved unsorted data to Output.txt");
+    System.out.println();
+
+    // Run and time all sorting algorithms
+    System.out.println("Starting sorting algorithms...");
+    Benchmarker.runAllSorts(array);
+    System.out.println("All sorting completed and results saved.");
+    System.out.println();
+
+    // Additional sorting using comparators
+    System.out.println("\n--- ADDITIONAL COMPARATOR SORTING ---");
+    
+    // Sort by Student ID
+    Registration[] idSorted = registrations.convToArray();
+    Arrays.sort(idSorted, Comparators.by_ID);
+    FileService.writeRegistrationsToFile(idSorted, "Sorted_By_ID.txt");
+    System.out.println("Saved student ID sorted data to Sorted_By_ID.txt");
+
+    // Sort by Course Code
+    Registration[] courseSorted = registrations.convToArray();
+    Arrays.sort(courseSorted, Comparators.by_CourseCode);
+    FileService.writeRegistrationsToFile(courseSorted, "Sorted_By_Course.txt");
+    System.out.println("Saved course code sorted data to Sorted_By_Course.txt");
+
+    // Sort by Academic Level
+    Registration[] levelSorted = registrations.convToArray();
+    Arrays.sort(levelSorted, Comparators.by_Level);
+    FileService.writeRegistrationsToFile(levelSorted, "Sorted_By_Level.txt");
+    System.out.println("Saved academic level sorted data to Sorted_By_Level.txt");
+
+    // Sort by Registration Time
+    Registration[] timeSorted = registrations.convToArray();
+    Arrays.sort(timeSorted, Comparators.by_RegTime);
+    FileService.writeRegistrationsToFile(timeSorted, "Sorted_By_Time.txt");
+    System.out.println("Saved registration time sorted data to Sorted_By_Time.txt");
+}
+
+// Calculate scores for all registrations
+public static void calculateAllDemandScores(LinkedList registrations) {
+    Node current = registrations.head;
+    while (current != null) {
+        DemandScorer.computeDemandScore(current.studData);
+        current = current.next;
+    }
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Sorter Interface</h3>
+            <pre class="code-block"><code>public interface Sorter {
+void sort(Registration[] a);
+String name();
+```
+
+}</code></pre>
+
+```
+            <h3>Node Class</h3>
+            <pre class="code-block"><code>public class Node {
+Registration studData; // Field to store Registration data
+Node next; // Field to store next Node reference
+
+// Constructor to initialize node with Registration
+public Node(Registration studData) {
+    this.studData = studData;
+    this.next = null;
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Timer Class</h3>
+            <pre class="code-block"><code>public class Timer {
+private long startTime;
+private long endTime;
+
+// Method to start timer
+public void start() {
+    startTime = System.currentTimeMillis();
+}
+
+// Method to stop timer
+public void stop() {
+    endTime = System.currentTimeMillis();
+}
+
+// Method to get elapsed time in milliseconds
+public long getElapsedTimeMillis() {
+    return endTime - startTime;
+}
+```
+
+}</code></pre>
+
+```
+            <h3>LinkedList Class</h3>
+            <pre class="code-block"><code>public class LinkedList {
+Node head;
+int size;
+Node tail;
+
+// Method to insert node at head
+public void insertNodeAtHead(Registration data) {
+    Node newNode = new Node(data);
+    if (head == null) {
+        head = newNode;
+        tail = newNode;
+        size++;
+        return;
+    }
+    newNode.next = head;
+    head = newNode;
+    size++;
+}
+
+// Method to insert node at tail
+public void insertNodeAtTail(Registration data) {
+    Node newNode = new Node(data);
+    if (head == null) {
+        head = newNode;
+        tail = newNode;
+        size++;
+        return;
+    }
+    tail.next = newNode;
+    tail = newNode;
+    size++;
+}
+
+// Method to delete node by value
+public void deleteNodeByValue(Registration data) {
+    if (head == null) {
+        return;
+    }
+    if (head.studData.equals(data)) {
+        head = head.next;
+        size--;
+        return;
+    }
+    Node prev = head;
+    Node curr = head.next;
+    
+    while (curr != null) {
+        if (curr.studData.equals(data)) {
+            prev.next = curr.next;
+            size--;
+            return;
+        }
+        prev = curr;
+        curr = curr.next;
+    }
+}
+
+// Method to search for a node
+public boolean searchKey(Registration data) {
+    Node temp = head;
+    while (temp.next != null) {
+        if (temp.studData.equals(data)) {
+            return true;
+        }
+        temp = temp.next;
+    }
+    return false;
+}
+
+// Method to display/traverse all nodes
+public void displayLinkedList() {
+    Node temp = head;
+    while (temp != null) {
+        System.out.println(temp.studData);
+        temp = temp.next;
+    }
+}
+
+// Method to convert list to array
+public Registration[] convToArray() {
+    int size = 0;
+    Node temp = head;
+    while (temp != null) {
+        size++;
+        temp = temp.next;
+    }
+    
+    Registration[] dataArray = new Registration[size];
+    temp = head;
+    int index = 0;
+    while (temp != null) {
+        dataArray[index++] = temp.studData;
+        temp = temp.next;
+    }
+    return dataArray;
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Benchmarker Class</h3>
+            <pre class="code-block"><code>public class Benchmarker {
+// Helper method to make a copy of the array
+private static Registration[] makeCopy(Registration[] original) {
+    Registration[] copy = new Registration[original.length];
+    for (int i = 0; i < original.length; i++) {
+        copy[i] = original[i];
+    }
+    return copy;
+}
+
+// Runs all 4 sorting algorithms and times them
+public static void runAllSorts(Registration[] originalArray) {
+    System.out.println("--- RUNNING ALL SORTS ---");
+    Timer timer = new Timer();
+
+    // 1. SELECTION SORT
+    Registration[] copy1 = makeCopy(originalArray);
+    timer.start();
+    new SelectionSort().sort(copy1);
+    timer.stop();
+    FileService.writeRegistrationsToFile(copy1, "Sorted_Output_SS.txt");
+    System.out.println("Selection Sort: " + timer.getElapsedTimeMillis() + " ms");
+
+    // 2. INSERTION SORT
+    Registration[] copy2 = makeCopy(originalArray);
+    timer.start();
+    new InsertionSort().sort(copy2);
+    timer.stop();
+    FileService.writeRegistrationsToFile(copy2, "Sorted_Output_IS.txt");
+    System.out.println("Insertion Sort: " + timer.getElapsedTimeMillis() + " ms");
+
+    // 3. MERGE SORT
+    Registration[] copy3 = makeCopy(originalArray);
+    timer.start();
+    new MergeSort().sort(copy3);
+    timer.stop();
+    FileService.writeRegistrationsToFile(copy3, "Sorted_Output_MS.txt");
+    System.out.println("Merge Sort: " + timer.getElapsedTimeMillis() + " ms");
+
+    // 4. QUICK SORT
+    Registration[] copy4 = makeCopy(originalArray);
+    timer.start();
+    new QuickSort().sort(copy4);
+    timer.stop();
+    FileService.writeRegistrationsToFile(copy4, "Sorted_Output_QS.txt");
+    System.out.println("Quick Sort: " + timer.getElapsedTimeMillis() + " ms");
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Comparator Class</h3>
+            <pre class="code-block"><code>import java.util.Comparator;
+```
+
+public final class Comparators {
+private Comparators() {
+}
+
+```
+// Comparator to sort Registration by studentId
+public static final Comparator&lt;Registration&gt; by_ID = new Comparator&lt;Registration&gt;() {
+    @Override
+    public int compare(Registration r1, Registration r2) {
+        return r1.getStudentID().compareTo(r2.getStudentID());
+    }
+};
+
+// Comparator to sort Registration by courseCode
+public static final Comparator&lt;Registration&gt; by_CourseCode = new Comparator&lt;Registration&gt;() {
+    @Override
+    public int compare(Registration r1, Registration r2) {
+        return r1.getCourseID().compareTo(r2.getCourseID());
+    }
+};
+
+// Comparator to sort Registration by academicLevel
+public static final Comparator&lt;Registration&gt; by_Level = new Comparator&lt;Registration&gt;() {
+    @Override
+    public int compare(Registration r1, Registration r2) {
+        return Integer.compare(r1.getAcademicLevel(), r2.getAcademicLevel());
+    }
+};
+
+// Comparator to sort Registration by regTime
+public static final Comparator&lt;Registration&gt; by_RegTime = new Comparator&lt;Registration&gt;() {
+    @Override
+    public int compare(Registration r1, Registration r2) {
+        return Integer.compare(r1.getRegTime(), r2.getRegTime());
+    }
+};
+
+// Static helper to get comparator by user choice
+public static Comparator&lt;Registration&gt; getComparator(String criterion) {
+    switch (criterion.toLowerCase()) {
+        case "id":
+            return by_ID;
+        case "course":
+            return by_CourseCode;
+        case "level":
+            return by_Level;
+        case "time":
+            return by_RegTime;
+        default:
+            throw new IllegalArgumentException("Unknown sorting criterion: " + criterion);
+    }
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Registration Class</h3>
+            <pre class="code-block"><code>public class Registration {
+private String studentID;
+private String courseID;
+private int academicLevel;
+private int regTime;
+private double studDemandScore;
+
+// Constructor to initialize fields
+public Registration(String studentID, String courseID, int academicLevel, 
+                   int regTime, double studDemandScore) {
+    this.studentID = studentID;
+    this.courseID = courseID;
+    this.academicLevel = academicLevel;
+    this.regTime = regTime;
+    this.studDemandScore = 0;
+}
+
+// Getters and setters
+public String getStudentID() {
+    return studentID;
+}
+
+public void setStudentID(String studentID) {
+    this.studentID = studentID;
+}
+
+public String getCourseID() {
+    return courseID;
+}
+
+public void setCourseID(String courseID) {
+    this.courseID = courseID;
+}
+
+public int getAcademicLevel() {
+    return academicLevel;
+}
+
+public void setAcademicLevel(int academicLevel) {
+    this.academicLevel = academicLevel;
+}
+
+public int getRegTime() {
+    return regTime;
+}
+
+public void setRegTime(int regTime) {
+    this.regTime = regTime;
+}
+
+public double getStudDemandScore() {
+    return studDemandScore;
+}
+
+public void setStudDemandScore(double studDemandScore) {
+    this.studDemandScore = studDemandScore;
+}
+
+@Override
+public String toString() {
+    return studentID + ";" + courseID + ";" + academicLevel + ";" + 
+           regTime + ";" + Math.round(studDemandScore) + ";";
+}
+```
+
+}</code></pre>
+
+```
+            <h3>DemandScorer Class</h3>
+            <pre class="code-block"><code>public class DemandScorer {
+public static void computeDemandScore(Registration reg) {
+    double score = 50; // Base score
+    score = applyStudentClassMultiplier(score, reg.getAcademicLevel());
+    score = applyTimePreferenceMultiplier(score, reg.getRegTime());
+    score = applyCoursePriority(score, reg.getCourseID());
+    score = Math.round(score);
+    score = Math.max(0, Math.min(100, score));
+    reg.setStudDemandScore(score);
+}
+
+private static double applyStudentClassMultiplier(double score, int studentClass) {
+    if (studentClass == 1) {
+        score = score * 0.75; // Freshman
+    } else if (studentClass == 2) {
+        score = score * 0.90; // Sophomore
+    } else if (studentClass == 3) {
+        score = score * 1.10; // Junior
+    } else if (studentClass == 4) {
+        score = score * 1.25; // Senior
+    } else if (studentClass == 5) {
+        score = score * 1.5; // Graduate
+    }
+    return score;
+}
+
+public static double applyTimePreferenceMultiplier(double score, int time) {
+    if (time >= 6 && time < 8) {
+        score += 5;
+    } else if (time >= 8 && time < 10) {
+        score += 10;
+    } else if (time >= 10 && time < 12) {
+        score += 5;
+    } else if (time >= 12 && time < 14) {
+        score += 0;
+    } else if (time >= 14 && time < 16) {
+        score -= 5;
+    } else if (time >= 16 && time < 20) {
+        score -= 10;
+    } else {
+        score -= 15;
+    }
+    return score;
+}
+
+private static double applyCoursePriority(double score, String courseID) {
+    char lastChar = courseID.charAt(courseID.length() - 1);
+    if (Character.isDigit(lastChar)) {
+        int lastDigit = Integer.parseInt(String.valueOf(lastChar));
+        if (lastDigit % 2 == 1) {
+            score += 20; // Odd number
+        } else {
+            score -= 10; // Even number
+        }
+    }
+    return score;
+}
+```
+
+}</code></pre>
+
+```
+            <h3>InputValidator Class</h3>
+            <pre class="code-block"><code>import java.io.*;
+```
+
+import java.util.*;
+
+public class InputValidator {
+private static Set<String> validCourses = new HashSet<>();
+
+```
+public static boolean isValidFilePath(String filePath) {
+    File file = new File(filePath);
+    return file.exists() && file.canRead();
+}
+
+public static LinkedList readAndValidateFile(String input) {
+    LinkedList registrations = new LinkedList();
+
+    if (!isValidFilePath(input)) {
+        System.out.println("ERROR: File '" + input + "' not found or not readable.");
+        return registrations;
+    }
+
+    try (BufferedReader list = new BufferedReader(new FileReader(input))) {
+        String line;
+        while ((line = list.readLine()) != null) {
+            String[] parts = line.split(";");
+            if (parts.length != 4) {
+                System.out.println("Invalid entry (wrong number of fields): " + line);
+                continue;
+            }
+
+            String studentID = parts[0];
+            String courseID = parts[1];
+
+            try {
+                int academicLevel = Integer.parseInt(parts[2]);
+                int studyTime = Integer.parseInt(parts[3]);
+
+                if (studentID.isEmpty() || courseID.isEmpty()) {
+                    System.out.println("Invalid string field in entry: " + line);
+                    continue;
+                }
+
+                if (studentID.length() != 7 && studentID.length() != 5) {
+                    System.out.println("Invalid student ID in entry: " + line);
+                    continue;
+                }
+
+                if (academicLevel < 1 || academicLevel > 5) {
+                    System.out.println("Invalid academic level in entry: " + line);
+                    continue;
+                }
+
+                if (studyTime < 0 || studyTime > 23) {
+                    System.out.println("Invalid study time in entry: " + line);
+                    continue;
+                }
+
+                validCourses.add(courseID);
+                Registration reg = new Registration(studentID, courseID, 
+                                                   academicLevel, studyTime, 0);
+                registrations.insertNodeAtTail(reg);
+                System.out.println("VALID: " + line);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number format in entry: " + line);
+                continue;
+            }
+        }
+    } catch (IOException e) {
+        System.out.println("Error reading file: " + e.getMessage());
+    }
+    return registrations;
+}
+```
+
+}</code></pre>
+
+```
+            <h3>FileService Class</h3>
+            <pre class="code-block"><code>import java.io.*;
+```
+
+public class FileService {
+public static LinkedList readRegistrationsFromFile(String filename) {
+return InputValidator.readAndValidateFile(filename);
+}
+
+```
+public static void writeRegistrationsToFile(Registration[] array, String filename) {
+    try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        for (Registration reg : array) {
+            if (reg != null) {
+                writer.write(reg.toString());
+                writer.newLine();
+            }
+        }
+        writer.close();
+        System.out.println("Registrations successfully written to " + filename);
+    } catch (IOException e) {
+        System.out.println("An error occurred while writing to the file: " + 
+                         e.getMessage());
+    }
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Insertion Sort Class</h3>
+            <pre class="code-block"><code>public class InsertionSort implements Sorter {
+@Override
+public void sort(Registration[] array) {
+    for (int i = 1; i < array.length; i++) {
+        Registration current = array[i];
+        double currentScore = current.getStudDemandScore();
+        int j = i - 1;
+
+        while (j >= 0 && array[j].getStudDemandScore() < currentScore) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = current;
+    }
+}
+
+@Override
+public String name() {
+    return "Insertion Sort";
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Merge Sort Class</h3>
+            <pre class="code-block"><code>public class MergeSort implements Sorter {
+@Override
+public void sort(Registration[] array) {
+    if (array.length < 2) {
+        return;
+    }
+
+    int mid = array.length / 2;
+    Registration[] left = new Registration[mid];
+    Registration[] right = new Registration[array.length - mid];
+
+    for (int i = 0; i < mid; i++) {
+        left[i] = array[i];
+    }
+
+    for (int i = mid; i < array.length; i++) {
+        right[i - mid] = array[i];
+    }
+
+    sort(left);
+    sort(right);
+    merge(array, left, right);
+}
+
+private void merge(Registration[] result, Registration[] left, Registration[] right) {
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i].getStudDemandScore() >= right[j].getStudDemandScore()) {
+            result[k++] = left[i++];
+        } else {
+            result[k++] = right[j++];
+        }
+    }
+
+    while (i < left.length) {
+        result[k++] = left[i++];
+    }
+
+    while (j < right.length) {
+        result[k++] = right[j++];
+    }
+}
+
+@Override
+public String name() {
+    return "Merge Sort";
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Quick Sort Class</h3>
+            <pre class="code-block"><code>public class QuickSort implements Sorter {
+@Override
+public void sort(Registration[] array) {
+    quickSort(array, 0, array.length - 1);
+}
+
+private void quickSort(Registration[] array, int low, int high) {
+    if (low < high) {
+        int pivotIndex = partition(array, low, high);
+        quickSort(array, low, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, high);
+    }
+}
+
+private int partition(Registration[] array, int low, int high) {
+    double pivot = array[high].getStudDemandScore();
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (array[j].getStudDemandScore() >= pivot) {
+            i++;
+            Registration temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    Registration temp = array[i + 1];
+    array[i + 1] = array[high];
+    array[high] = temp;
+
+    return i + 1;
+}
+
+@Override
+public String name() {
+    return "Quick Sort";
+}
+```
+
+}</code></pre>
+
+```
+            <h3>Selection Sort Class</h3>
+            <pre class="code-block"><code>public class SelectionSort implements Sorter {
+@Override
+public void sort(Registration[] array) {
+    for (int i = 0; i < array.length - 1; i++) {
+        int maxIndex = i;
+        for (int j = i + 1; j < array.length; j++) {
+            if (array[j].getStudDemandScore() > array[maxIndex].getStudDemandScore()) {
+                maxIndex = j;
+            }
+        }
+        Registration temp = array[i];
+        array[i] = array[maxIndex];
+        array[maxIndex] = temp;
+    }
+}
+
+@Override
+public String name() {
+    return "Selection Sort";
+}
+```
+
+}</code></pre>
+</section>
+
+```
+        <section id="appendix-c">
+            <h2>Appendix C: Full Run Pictures</h2>
+            
+            <div style="background-color: #f8f9fa; padding: 30px; text-align: center; border: 2px dashed #6c757d; border-radius: 5px; margin: 20px 0;">
+                <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px;"><strong>Console Output Screenshot Placeholder</strong></p>
+                <p style="color: #6c757d;">Full program execution showing:</p>
+                <ul style="list-style: none; color: #6c757d; text-align: left; display: inline-block;">
+                    <li>✓ File reading completed: 106 ms</li>
+                    <li>✓ Successfully read 3432 registrations</li>
+                    <li>✓ Demand score calculations completed: 98 ms</li>
+                    <li>✓ File writing completed: 48 ms</li>
+                    <li>✓ Selection Sort: 45 ms</li>
+                    <li>✓ Insertion Sort: 26 ms</li>
+                    <li>✓ Merge Sort: 17 ms</li>
+                    <li>✓ Quick Sort: 22 ms</li>
+                    <li>✓ All sorting completed and results saved</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Prince Sultan University - College of Computer and Information Sciences</p>
+        <p>CS210: Data Structures and Algorithms - Section 951</p>
+    </footer>
+</div>
+```
+
+</body>
+</html>

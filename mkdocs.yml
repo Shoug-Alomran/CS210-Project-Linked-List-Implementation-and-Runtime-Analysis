@@ -41,7 +41,11 @@ nav:
   - Teamwork Contribution: teamwork/contributions.md
   - Conclusion: conclusion.md
   - References and Resources: references.md
+  - Report:
+      - View Report: report/report.md
+      - Full HTML Report: report/report.html
   - Appendices:
+      - Interactive Report: report.md
       - Flowchart: appendix/flowchart.md
       - Full Source Code: appendix/full-code.md
       - Run Screenshots: appendix/run-screenshots.md
