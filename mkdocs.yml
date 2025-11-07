@@ -45,7 +45,6 @@ nav:
       - View Report: report/report.md
       - Full HTML Report: report/report.html
   - Appendices:
-      - Interactive Report: report.md
       - Flowchart: appendix/flowchart.md
       - Full Source Code: appendix/full-code.md
       - Run Screenshots: appendix/run-screenshots.md
@@ -64,6 +63,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
+  - md_in_html
 
 extra_css:
   - assets/styles.css

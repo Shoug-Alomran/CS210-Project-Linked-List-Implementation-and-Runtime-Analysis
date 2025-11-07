@@ -28,7 +28,7 @@ The following flowchart illustrates the overall workflow of the system, starting
 
 ## System Flowchart
 
-![System Flowchart](../assets/images/Flow%20Chart%20CS%20210.png)
+![System Flowchart](../assets/images/flowchart.png)
 
 **Figure:** Flowchart illustrating the complete system process for course registration analysis.
 

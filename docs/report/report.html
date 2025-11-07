@@ -281,8 +281,6 @@
         }
     }
 </style>
-```
-
 </head>
 <body>
     <div class="container">
@@ -302,7 +300,6 @@
             </div>
         </header>
 
-```
     <main>
         <nav class="toc">
             <h2>Table of Contents</h2>
@@ -588,13 +585,11 @@
 
             <h3>Main Class</h3>
             <pre class="code-block"><code>import java.util.Arrays;
-```
 
 public class Main {
 public static void main(String[] args) {
 Timer timer = new Timer();
 
-```
     // Time reading operation
     System.out.println("Starting file reading...");
     timer.start();
@@ -667,20 +662,19 @@ public static void calculateAllDemandScores(LinkedList registrations) {
         current = current.next;
     }
 }
-```
+
 
 }</code></pre>
 
-```
+
             <h3>Sorter Interface</h3>
             <pre class="code-block"><code>public interface Sorter {
 void sort(Registration[] a);
 String name();
-```
+
 
 }</code></pre>
 
-```
             <h3>Node Class</h3>
             <pre class="code-block"><code>public class Node {
 Registration studData; // Field to store Registration data
@@ -691,11 +685,9 @@ public Node(Registration studData) {
     this.studData = studData;
     this.next = null;
 }
-```
+
 
 }</code></pre>
-
-```
             <h3>Timer Class</h3>
             <pre class="code-block"><code>public class Timer {
 private long startTime;
@@ -715,11 +707,9 @@ public void stop() {
 public long getElapsedTimeMillis() {
     return endTime - startTime;
 }
-```
 
 }</code></pre>
 
-```
             <h3>LinkedList Class</h3>
             <pre class="code-block"><code>public class LinkedList {
 Node head;
@@ -817,11 +807,9 @@ public Registration[] convToArray() {
     }
     return dataArray;
 }
-```
 
 }</code></pre>
 
-```
             <h3>Benchmarker Class</h3>
             <pre class="code-block"><code>public class Benchmarker {
 // Helper method to make a copy of the array
@@ -870,20 +858,16 @@ public static void runAllSorts(Registration[] originalArray) {
     FileService.writeRegistrationsToFile(copy4, "Sorted_Output_QS.txt");
     System.out.println("Quick Sort: " + timer.getElapsedTimeMillis() + " ms");
 }
-```
 
 }</code></pre>
 
-```
             <h3>Comparator Class</h3>
             <pre class="code-block"><code>import java.util.Comparator;
-```
 
 public final class Comparators {
 private Comparators() {
 }
 
-```
 // Comparator to sort Registration by studentId
 public static final Comparator&lt;Registration&gt; by_ID = new Comparator&lt;Registration&gt;() {
     @Override
@@ -931,11 +915,9 @@ public static Comparator&lt;Registration&gt; getComparator(String criterion) {
             throw new IllegalArgumentException("Unknown sorting criterion: " + criterion);
     }
 }
-```
 
 }</code></pre>
 
-```
             <h3>Registration Class</h3>
             <pre class="code-block"><code>public class Registration {
 private String studentID;
@@ -1000,11 +982,9 @@ public String toString() {
     return studentID + ";" + courseID + ";" + academicLevel + ";" + 
            regTime + ";" + Math.round(studDemandScore) + ";";
 }
-```
 
 }</code></pre>
 
-```
             <h3>DemandScorer Class</h3>
             <pre class="code-block"><code>public class DemandScorer {
 public static void computeDemandScore(Registration reg) {
@@ -1063,21 +1043,17 @@ private static double applyCoursePriority(double score, String courseID) {
     }
     return score;
 }
-```
 
 }</code></pre>
 
-```
             <h3>InputValidator Class</h3>
             <pre class="code-block"><code>import java.io.*;
-```
 
 import java.util.*;
 
 public class InputValidator {
 private static Set<String> validCourses = new HashSet<>();
 
-```
 public static boolean isValidFilePath(String filePath) {
     File file = new File(filePath);
     return file.exists() && file.canRead();
@@ -1142,21 +1118,17 @@ public static LinkedList readAndValidateFile(String input) {
     }
     return registrations;
 }
-```
 
 }</code></pre>
 
-```
             <h3>FileService Class</h3>
             <pre class="code-block"><code>import java.io.*;
-```
 
 public class FileService {
 public static LinkedList readRegistrationsFromFile(String filename) {
 return InputValidator.readAndValidateFile(filename);
 }
 
-```
 public static void writeRegistrationsToFile(Registration[] array, String filename) {
     try {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
@@ -1173,11 +1145,9 @@ public static void writeRegistrationsToFile(Registration[] array, String filenam
                          e.getMessage());
     }
 }
-```
 
 }</code></pre>
 
-```
             <h3>Insertion Sort Class</h3>
             <pre class="code-block"><code>public class InsertionSort implements Sorter {
 @Override
@@ -1199,11 +1169,9 @@ public void sort(Registration[] array) {
 public String name() {
     return "Insertion Sort";
 }
-```
 
 }</code></pre>
 
-```
             <h3>Merge Sort Class</h3>
             <pre class="code-block"><code>public class MergeSort implements Sorter {
 @Override
@@ -1255,11 +1223,9 @@ private void merge(Registration[] result, Registration[] left, Registration[] ri
 public String name() {
     return "Merge Sort";
 }
-```
 
 }</code></pre>
 
-```
             <h3>Quick Sort Class</h3>
             <pre class="code-block"><code>public class QuickSort implements Sorter {
 @Override
@@ -1299,11 +1265,9 @@ private int partition(Registration[] array, int low, int high) {
 public String name() {
     return "Quick Sort";
 }
-```
 
 }</code></pre>
 
-```
             <h3>Selection Sort Class</h3>
             <pre class="code-block"><code>public class SelectionSort implements Sorter {
 @Override
@@ -1325,12 +1289,10 @@ public void sort(Registration[] array) {
 public String name() {
     return "Selection Sort";
 }
-```
 
 }</code></pre>
 </section>
 
-```
         <section id="appendix-c">
             <h2>Appendix C: Full Run Pictures</h2>
             
@@ -1357,7 +1319,6 @@ public String name() {
         <p>CS210: Data Structures and Algorithms - Section 951</p>
     </footer>
 </div>
-```
 
 </body>
 </html>
