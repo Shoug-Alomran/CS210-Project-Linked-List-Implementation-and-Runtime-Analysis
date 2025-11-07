@@ -35,6 +35,20 @@ theme:
 
 nav:
   - Home: index.md
+  - Overview:
+      - Introduction: overview/introduction.md
+      - System Design Overview: overview/design-overview.md
+  - Analysis:
+      - Asymptotic Complexity: analysis/asymptotic-complexity.md
+      - Runtime Measurement: analysis/runtime-measurement.md
+      - Interpretation of Results: analysis/interpretation.md
+  - Teamwork Contribution: teamwork/contributions.md
+  - Conclusion: conclusion.md
+  - References and Resources: references.md
+  - Appendices:
+      - Flowchart: appendix/flowchart.md
+      - Full Source Code: appendix/full-code.md
+      - Run Screenshots: appendix/run-screenshots.md
 
 plugins:
   - search
