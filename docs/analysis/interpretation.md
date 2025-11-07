@@ -20,12 +20,3 @@ The runtime data and theoretical analysis both confirm the expected behavior of 
   Efficient algorithms (Merge and Quick Sort) handle larger data with much less growth in runtime.
 - **System efficiency:**  
   The use of a custom linked list, efficient file handling, and optimized scoring ensured consistent performance.
-
----
-
-## Visual Summary (Optional)
-
-If you have a bar chart or runtime plot, embed it here:
-
-```markdown
-![Runtime Comparison](../assets/images/runtime_chart.png)
