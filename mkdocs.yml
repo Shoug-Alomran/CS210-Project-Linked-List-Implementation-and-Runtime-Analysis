@@ -3,10 +3,6 @@ site_url: https://shoug-alomran.github.io/CS210-Project-Linked-List-Implementati
 site_author: Shoug Fawaz Alomran & Layan Hesham Bindayel
 site_description: Analysis of sorting algorithms and runtime performance using a custom linked list implementation.
 
-repo_url: https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis
-repo_name: CS210-Project-Linked-List-Implementation-and-Runtime-Analysis
-edit_uri: ""
-
 theme:
   name: material
   language: en
