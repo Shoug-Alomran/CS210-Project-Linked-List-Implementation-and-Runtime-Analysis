@@ -86,7 +86,7 @@ Each phase prints its runtime in milliseconds to the console.
 ## 📄 Project Documentation
 
 The full project documentation is available here:  
-[View CS210 Project Report (MkDocs Site)](https://shoug-alomran.github.io/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis/)
+[View CS210 Project Report (MkDocs Site)](https://linkedlist.shoug-tech.com)
 
 ---
 
