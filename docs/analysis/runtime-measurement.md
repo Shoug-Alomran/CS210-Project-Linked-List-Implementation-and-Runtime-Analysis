@@ -21,8 +21,11 @@ Runtime performance was measured using the **Java Clock class** to record the ex
 ## Discussion
 
 The results confirm that:
+
 - **Merge Sort** and **Quick Sort** consistently achieved the lowest runtimes.
+
 - **Selection Sort** and **Insertion Sort** took significantly longer, especially as dataset size increased.
+
 - File operations and demand score calculations behaved linearly, matching their O(n) complexity.
 
 All timings were measured under identical conditions on the same machine to ensure fair comparison.
