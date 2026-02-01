@@ -22,15 +22,25 @@ By using student registration data as the input, the project demonstrates how so
 ## Scope of Work
 
 This project includes:
+
 - Implementing a **custom Linked List** data structure to store student registration data.
+
 - Processing each record to compute a **demand score** using multiple weighted factors.
+
 - Converting the linked list into an array for sorting.
+
 - Applying four sorting algorithms:
+
   1. Selection Sort  
+
   2. Insertion Sort  
+
   3. Merge Sort  
+
   4. Quick Sort
+
 - Measuring and comparing runtimes for each algorithm.
+
 - Interpreting the results to evaluate which approach is most efficient.
 
 ---
@@ -38,6 +48,9 @@ This project includes:
 ## Objective
 
 The objective of this project is to:
+
 - Explore the relationship between **data structures**, **algorithmic design**, and **runtime performance**.
+
 - Understand the practical trade-offs between simple and complex sorting techniques.
+
 - Provide a measurable comparison of efficiency between algorithms in real-world data processing scenarios.
