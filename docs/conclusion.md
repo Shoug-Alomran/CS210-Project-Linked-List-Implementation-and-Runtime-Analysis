@@ -16,9 +16,13 @@ This hands-on experience illustrated how algorithmic design choices directly imp
 ## Future Recommendations
 
 For future improvements, the system could be extended to:
+
 - Process **real-time registration data** directly from a university database.
+
 - Include a **graphical interface** to visualize demand scores and sorted results.
+
 - Add **automatic data validation** and input error detection.
+
 - Explore additional algorithms such as **Heap Sort** or **Counting Sort** to compare broader performance trends.
 
 Overall, the project successfully achieved its objectives—demonstrating how data structures, algorithmic design, and runtime performance intersect in practical software development.
