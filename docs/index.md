@@ -9,13 +9,21 @@ This project demonstrates how different sorting algorithms perform in practice w
 
 The purpose of this project is to analyze student course registration data to determine **course demand** using efficient data structures and sorting algorithms.  
 The implementation includes:
+
 - Custom **Linked List** data structure.  
+
 - **Demand scoring** system that evaluates registration priority.  
+
 - Four sorting algorithms:
+
   - Selection Sort  
+
   - Insertion Sort  
+
   - Merge Sort  
+
   - Quick Sort  
+
 - Runtime measurement and comparison across all algorithms.
 
 ---
