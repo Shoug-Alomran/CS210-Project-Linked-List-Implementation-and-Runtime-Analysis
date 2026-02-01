@@ -88,5 +88,4 @@ The total demand score is computed and stored in each `Registration` node.
 
 The complete program flow is illustrated in the system flowchart below:
 
-```markdown
 ![System Flowchart](../assets/images/flowchart.png)
