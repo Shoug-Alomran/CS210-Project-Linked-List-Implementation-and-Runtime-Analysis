@@ -32,5 +32,7 @@ This section analyzes the theoretical time complexity **T(n)** and Big-O **O(n)*
 ## Summary
 
 Theoretical performance confirms that:
+
 - **Merge Sort** and **Quick Sort** are the most efficient for large datasets.
+
 - **Selection Sort** and **Insertion Sort** are simpler but slower, suitable for small datasets or educational use.
