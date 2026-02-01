@@ -31,13 +31,13 @@ This project includes:
 
 - Applying four sorting algorithms:
 
-  1. Selection Sort  
+    1. Selection Sort  
 
-  2. Insertion Sort  
+    2. Insertion Sort  
 
-  3. Merge Sort  
+    3. Merge Sort  
 
-  4. Quick Sort
+    4. Quick Sort
 
 - Measuring and comparing runtimes for each algorithm.
 
