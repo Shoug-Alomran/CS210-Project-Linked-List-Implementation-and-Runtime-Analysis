@@ -8,10 +8,10 @@ This project was completed collaboratively by **Shoug Alomran** and **Layan Bind
 - Managed the **organization and coordination** of the project.  
 - Created the **report template** and divided the work evenly.  
 - Implemented foundational components:
-  - `Node.java`
-  - `LinkedList.java`
-  - `FileService.java`
-  - `Comparators.java`
+    - `Node.java`
+    - `LinkedList.java`
+    - `FileService.java`
+    - `Comparators.java`
 - Authored the **High-Level Solution** and **Asymptotic Performance Analysis** sections of the report.
 
 ---
@@ -19,18 +19,21 @@ This project was completed collaboratively by **Shoug Alomran** and **Layan Bind
 ## Shoug Alomran’s Contribution
 - Focused on the **analytical and runtime components** of the project.  
 - Implemented:
-  - `InputValidator.java`
-  - `DemandScorer.java`
-  - `SelectionSort.java`, `InsertionSort.java`, `MergeSort.java`, and `QuickSort.java`
-  - `Benchmarker.java` and `Timer.java`
+    - `InputValidator.java`
+    - `DemandScorer.java`
+    - `SelectionSort.java`, `InsertionSort.java`, `MergeSort.java`, and `QuickSort.java`
+    - `Benchmarker.java` and `Timer.java`
 - Authored the **Runtime Measurement** section of the report, including runtime tables, screenshots, and analysis.
 
 ---
 
 ## Joint Contribution
 Both members collaborated equally on:
+
 - **`Main.java`** — integrating all system components.  
+
 - Testing, debugging, and validating data accuracy.  
+
 - Writing and editing sections of the final report.  
 
 Their teamwork reflected clear coordination and mutual understanding of the project’s goals, combining strong organization (Layan) and analytical focus (Shoug) to deliver a complete and efficient system.
