@@ -63,7 +63,10 @@ Illustrates the time required for demand score computation.
 ## Conclusion
 
 These screenshots validate the correct implementation and execution of all program components, confirming:
+
 - Accurate file reading and validation (3432 records)
+
 - Correct computation of demand scores  
+
 - Successful sorting using four algorithms  
 - Accurate measurement of runtime performance  
