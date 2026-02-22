@@ -1,10 +1,15 @@
 # Runtime Measurement
 
-Runtime performance was measured using the **Java Clock class** to record the execution time of each major phase. The dataset used contained **3432 registration records**.
+Runtime performance was measured using the **Java Clock class**
+to capture execution time for each major phase.
+
+The dataset contained **3432 registration records**, and all
+algorithms were executed under identical system conditions to
+ensure fairness and consistency.
 
 ---
 
-## Measured Runtime Table
+## :material-table: Measured Runtime Results
 
 | Operation | Theoretical Complexity | Actual Runtime (ms) |
 |------------|------------------------|--------------------|
@@ -18,14 +23,53 @@ Runtime performance was measured using the **Java Clock class** to record the ex
 
 ---
 
-## Discussion
+## :material-chart-line: Performance Analysis
 
-The results confirm that:
+<div class="grid cards" markdown>
 
-- **Merge Sort** and **Quick Sort** consistently achieved the lowest runtimes.
+-   ### :material-trending-up: Best Performing Algorithms
 
-- **Selection Sort** and **Insertion Sort** took significantly longer, especially as dataset size increased.
+    **Merge Sort (17 ms)** achieved the fastest runtime,
+    followed closely by **Quick Sort (22 ms)**.
 
-- File operations and demand score calculations behaved linearly, matching their O(n) complexity.
+    Their performance aligns with their
+    **O(n log n)** time complexity.
 
-All timings were measured under identical conditions on the same machine to ensure fair comparison.
+-   ### :material-trending-down: Quadratic Algorithms
+
+    **Selection Sort (45 ms)** and  
+    **Insertion Sort (26 ms)** showed slower performance,
+    consistent with **O(n²)** behavior.
+
+-   ### :material-swap-horizontal: Linear Operations
+
+    File reading, writing, and demand score computation
+    scaled linearly with input size, validating their
+    **O(n)** complexity.
+
+</div>
+
+---
+
+## :material-flask-outline: Observations
+
+- The measured results closely match theoretical expectations.
+- The gap between O(n²) and O(n log n) becomes more significant
+  as dataset size increases.
+- Merge Sort demonstrated slightly better consistency than Quick Sort
+  under this dataset.
+- File I/O overhead remains predictable and linear.
+
+---
+
+## :material-check-decagram-outline: Validation Statement
+
+The close alignment between **theoretical complexity**
+and **empirical runtime measurement** confirms:
+
+- Correct algorithm implementation  
+- Accurate benchmarking methodology  
+- Valid performance comparison  
+
+This reinforces the practical importance of algorithm selection
+in scalable software design.

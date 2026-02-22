@@ -1,69 +1,122 @@
-# CS210 Project — Linked List Implementation and Runtime Analysis
+# CS210 Project — Linked List Implementation & Runtime Analysis
 
-Welcome to the documentation site for the **CS210 Project**, developed by **Shoug Alomran** and **Layan Bindayel** under the supervision of **Dr. Najla Althuniyan**.  
-This project demonstrates how different sorting algorithms perform in practice when applied to real-world data stored in a **custom Linked List** structure.
+Welcome to the documentation site for the **CS210 Project**, developed by  
+**Shoug Alomran** and **Layan Bindayel**  
+Under the supervision of **Dr. Najla Althuniyan**
 
----
-
-## Overview
-
-The purpose of this project is to analyze student course registration data to determine **course demand** using efficient data structures and sorting algorithms.  
-The implementation includes:
-
-- Custom **Linked List** data structure.  
-
-- **Demand scoring** system that evaluates registration priority.  
-
-- Four sorting algorithms:
-
-  - Selection Sort  
-
-  - Insertion Sort  
-
-  - Merge Sort  
-
-  - Quick Sort  
-
-- Runtime measurement and comparison across all algorithms.
+This project evaluates how different sorting algorithms perform when applied
+to real-world student registration data stored in a custom **Linked List**
+structure.
 
 ---
 
-## Key Objectives
-- Build a fully functional program that reads, processes, and sorts real data.  
-- Compare the **theoretical** and **measured** performance of four sorting algorithms.  
-- Demonstrate how algorithmic design affects runtime efficiency.  
-- Present clear, organized documentation that highlights both implementation and analysis.
+## :material-view-dashboard-outline: Project Overview
+
+<div class="grid cards" markdown>
+
+-   ### :material-link-variant: Custom Data Structure
+
+    Implementation of a fully functional **Linked List**
+    to store and manage student registration records.
+
+-   ### :material-calculator-variant-outline: Demand Scoring
+
+    A weighted demand scoring system that evaluates
+    registration priority using multiple factors.
+
+-   ### :material-sort: Sorting Algorithms
+
+    Implementation and comparison of:
+
+    - Selection Sort  
+    - Insertion Sort  
+    - Merge Sort  
+    - Quick Sort  
+
+-   ### :material-timer-outline: Runtime Analysis
+
+    Measurement and benchmarking of execution times
+    to compare theoretical vs. practical performance.
+
+</div>
 
 ---
 
-## Project Structure
-| Section | Description |
-|----------|--------------|
-| **Introduction** | Explains background, problem statement, and scope. |
-| **System Design Overview** | Describes major components and program flow. |
-| **Asymptotic Analysis** | Outlines theoretical T(n) and O(n) complexities. |
-| **Runtime Measurement** | Shows measured execution times and performance comparison. |
-| **Teamwork** | Documents task distribution and coordination. |
-| **Conclusion** | Summarizes findings and future recommendations. |
-| **References** | Lists academic and technical sources used. |
-| **Appendices** | Includes flowchart, screenshots, and source code. |
+## :material-target: Key Objectives
+
+<div class="grid cards" markdown>
+
+-   Build a fully functional program that reads,
+    processes, and sorts real registration data.
+
+-   Compare **theoretical complexity (Big-O)**
+    with measured runtime performance.
+
+-   Analyze how algorithm design impacts scalability.
+
+-   Present clear, structured documentation
+    for both implementation and analysis.
+
+</div>
 
 ---
 
-## Technologies Used
-- **Language:** Java  
-- **Environment:** Visual Studio Code  
-- **Documentation:** MkDocs Material  
-- **Version Control:** GitHub  
+## :material-folder-outline: Project Structure
+
+<div class="grid cards" markdown>
+
+-   **Introduction**  
+    Background, problem statement, and scope.
+
+-   **System Design Overview**  
+    Major components and execution flow.
+
+-   **Asymptotic Analysis**  
+    Theoretical T(n) and O(n) complexity comparison.
+
+-   **Runtime Measurement**  
+    Empirical performance evaluation.
+
+-   **Teamwork**  
+    Task distribution and coordination.
+
+-   **Conclusion**  
+    Findings and future recommendations.
+
+-   **References**  
+    Academic and technical sources.
+
+-   **Appendices**  
+    Flowcharts, screenshots, and source code.
+
+</div>
 
 ---
 
-## Repository
-You can view the complete project source code and documentation at:  
-[https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis](https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis)
+## :material-tools: Technologies Used
+
+<div class="grid cards" markdown>
+
+-   **Language:** Java  
+-   **Environment:** Visual Studio Code  
+-   **Documentation:** MkDocs Material  
+-   **Version Control:** GitHub  
+
+</div>
 
 ---
 
-## Summary
-This project brings together theoretical and practical elements of **data structures and algorithms**.  
-It provides a real demonstration of how runtime analysis reflects the efficiency of algorithmic design, showcasing the relationship between **Linked Lists**, **sorting**, and **performance** in computational problem-solving.
+## :material-github: Repository
+
+You can view the complete project source code and documentation:
+
+[CS210 Project Repository](https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis)
+
+---
+
+## :material-chart-line: Summary
+
+This project integrates theoretical foundations with practical implementation.
+It demonstrates how runtime analysis reflects algorithmic efficiency and
+highlights the relationship between **Linked Lists**, **sorting algorithms**,
+and **performance optimization** in computational problem-solving.

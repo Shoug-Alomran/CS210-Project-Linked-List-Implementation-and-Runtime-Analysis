@@ -1,22 +1,69 @@
 # Interpretation of Results
 
-The runtime data and theoretical analysis both confirm the expected behavior of each sorting algorithm.
+The empirical runtime data and theoretical complexity analysis
+demonstrate strong alignment between predicted and observed behavior
+for all implemented sorting algorithms.
 
 ---
 
-## Key Observations
+## :material-chart-line: Key Observations
 
-1. **Merge Sort** and **Quick Sort** showed superior performance because of their **O(n log n)** complexity.
-2. **Insertion Sort** and **Selection Sort** became slower as the dataset grew, reflecting their **O(n²)** cost.
-3. The actual runtime differences aligned with theory, validating both the implementation and analysis.
+<div class="grid cards" markdown>
+
+-   ### :material-trending-up: Superior Performance
+
+    **Merge Sort** and **Quick Sort** consistently outperformed
+    the other algorithms due to their
+    **O(n log n)** time complexity.
+
+-   ### :material-trending-down: Quadratic Growth
+
+    **Insertion Sort** and **Selection Sort**
+    exhibited noticeable runtime growth,
+    consistent with **O(n²)** complexity.
+
+-   ### :material-check-circle-outline: Theory Validated
+
+    The measured runtimes closely matched theoretical expectations,
+    validating both the correctness of implementation
+    and the reliability of benchmarking.
+
+</div>
 
 ---
 
-## Insights and Lessons Learned
+## :material-lightbulb-outline: Insights & Lessons Learned
 
-- **Trade-off between simplicity and efficiency:**  
-  Simple algorithms like Insertion and Selection Sort are easier to understand but inefficient on large datasets.
-- **Scalability:**  
-  Efficient algorithms (Merge and Quick Sort) handle larger data with much less growth in runtime.
-- **System efficiency:**  
-  The use of a custom linked list, efficient file handling, and optimized scoring ensured consistent performance.
+<div class="grid cards" markdown>
+
+-   ### :material-scale-balance: Simplicity vs. Efficiency
+
+    Simpler algorithms (Selection and Insertion Sort)
+    are easier to implement and reason about,
+    but do not scale efficiently as data size increases.
+
+-   ### :material-expand-all-outline: Scalability Matters
+
+    Divide-and-conquer algorithms (Merge and Quick Sort)
+    maintain significantly better growth behavior,
+    making them suitable for large datasets.
+
+-   ### :material-cog-outline: System-Level Optimization
+
+    Efficient file handling, structured scoring logic,
+    and a modular linked-list implementation
+    contributed to stable and predictable performance.
+
+</div>
+
+---
+
+## :material-flask-outline: Overall Interpretation
+
+This project reinforces a fundamental principle in algorithm design:
+
+> Theoretical complexity directly influences practical runtime behavior.
+
+The results demonstrate how informed algorithm selection
+significantly impacts scalability, efficiency, and system performance
+in real-world applications.

@@ -1,72 +1,101 @@
 # Appendix C — Runtime Output Screenshots
 
----
+This appendix presents runtime screenshots captured during execution of the  
+**CS210 Project — Student Course Registration Analysis**.
 
-## Overview
-
-This appendix presents all runtime screenshots captured during the execution of the **CS210 Project — Student Course Registration Analysis**.  
-Each image shows a specific stage in the program’s operation — from reading and validating input data to measuring sorting runtimes.
-
----
-
-## 1. Full Run Validation
-Displays the validation of input data and confirmation that 3432 registration records were successfully read.
-
-![Full Run Validation](../assets/images/Full%20Run%20Validation.PNG)
+Each screenshot documents a specific stage of program execution,
+from input validation to sorting performance benchmarking.
 
 ---
 
-## 2. Full Program Run
-Shows the complete run of the program, including file reading, demand score calculation, writing results, and running all sorting algorithms.
+## :material-clipboard-check-outline: 1. Full Run Validation
 
-![Full Run](../assets/images/Full%20Run.png)
+???+ details "View Screenshot — Full Run Validation"
+    Displays validation of input data and confirmation that  
+    **3432 registration records** were successfully read.
 
----
-
-## 3. Results Summary
-Summarizes the measured runtime results of all sorting algorithms.
-
-![Results](../assets/images/Results.png)
+    ![Full Run Validation](../assets/images/Full%20Run%20Validation.PNG)
 
 ---
 
-## 4. Reading and Writing Stage
-Demonstrates the runtime for reading and writing data operations.
+## :material-play-circle-outline: 2. Full Program Run
 
-![The Writing and Reading Running Time](../assets/images/The%20Writing%20and%20Reading%20Running%20Time.png)
+???+ details "View Screenshot — Full Program Execution"
+    Shows the complete execution flow, including:
+    - File reading  
+    - Demand score calculation  
+    - Writing results  
+    - Running all sorting algorithms  
 
----
-
-## 5. Demand Score Processing Stage
-Illustrates the time required for demand score computation.
-
-![The Processing (Demand score computation) Run Time](../assets/images/The%20Processing%20(Demand%20score%20computation)%20Run%20Time.png)
-
----
-
-## 6. Sorting Algorithms Runtime Comparison
-
-### a) Selection Sort
-![Selection Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Selection%20Sort.png)
-
-### b) Insertion Sort
-![Insertion Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Insertion%20Sort.png)
-
-### c) Merge Sort
-![Merge Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Merge%20Sort.png)
-
-### d) Quick Sort
-![Quick Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Quick%20Sort.png)
+    ![Full Run](../assets/images/Full%20Run.png)
 
 ---
 
-## Conclusion
+## :material-chart-bar: 3. Results Summary
 
-These screenshots validate the correct implementation and execution of all program components, confirming:
+???+ details "View Screenshot — Runtime Summary"
+    Summarizes measured runtimes of all sorting algorithms.
 
-- Accurate file reading and validation (3432 records)
+    ![Results](../assets/images/Results.png)
 
-- Correct computation of demand scores  
+---
 
-- Successful sorting using four algorithms  
-- Accurate measurement of runtime performance  
+## :material-file-sync-outline: 4. Reading & Writing Stage
+
+???+ details "View Screenshot — Reading and Writing Runtime"
+    Demonstrates runtime measurement for file input and output operations.
+
+    ![The Writing and Reading Running Time](../assets/images/The%20Writing%20and%20Reading%20Running%20Time.png)
+
+---
+
+## :material-calculator-variant-outline: 5. Demand Score Processing Stage
+
+???+ details "View Screenshot — Demand Score Computation Runtime"
+    Illustrates time required for computing demand scores.
+
+    ![The Processing (Demand score computation) Run Time](../assets/images/The%20Processing%20(Demand%20score%20computation)%20Run%20Time.png)
+
+---
+
+## :material-sort: 6. Sorting Algorithms Runtime Comparison
+
+### Selection Sort
+
+???+ details "View Screenshot — Selection Sort Runtime"
+    ![Selection Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Selection%20Sort.png)
+
+---
+
+### Insertion Sort
+
+???+ details "View Screenshot — Insertion Sort Runtime"
+    ![Insertion Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Insertion%20Sort.png)
+
+---
+
+### Merge Sort
+
+???+ details "View Screenshot — Merge Sort Runtime"
+    ![Merge Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Merge%20Sort.png)
+
+---
+
+### Quick Sort
+
+???+ details "View Screenshot — Quick Sort Runtime"
+    ![Quick Sort Runtime](../assets/images/The%20Sorting%20Running%20Time-Quick%20Sort.png)
+
+---
+
+## :material-check-decagram-outline: Validation Summary
+
+These screenshots confirm:
+
+- Successful validation and loading of **3432 records**  
+- Correct demand score computation  
+- Accurate sorting using four algorithms  
+- Reliable runtime measurement and benchmarking  
+
+The results demonstrate correctness of implementation and consistency
+between theoretical expectations and measured performance.

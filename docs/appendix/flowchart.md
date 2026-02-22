@@ -1,42 +1,89 @@
 # Appendix A — System Flowchart
 
-The following flowchart illustrates the overall workflow of the system, starting from data input and validation to runtime measurement and output generation.
+This appendix presents the overall system workflow,
+from input validation to runtime benchmarking and output generation.
 
 ---
 
-## System Flow Overview
+## :material-graph-outline: System Execution Flow
 
-1. Start Program  
-2. Read and validate registration data from `Input.txt`.  
-3. Store valid data in a **Linked List** structure.  
-4. Calculate demand score for each student based on:
-   - Base score  
-   - Academic level multiplier  
-   - Time of registration  
-   - Course ID priority  
-5. Convert Linked List into an array.  
-6. Apply all four sorting algorithms:
-   - Selection Sort  
-   - Insertion Sort  
-   - Merge Sort  
-   - Quick Sort  
-7. Measure and record execution time for each sorting algorithm.  
-8. Write results to `Output.txt` and generate sorted output files.  
-9. Display runtime summary and terminate the program.
+<div class="grid cards" markdown>
+
+-   ### :material-play-circle-outline: Program Start
+
+    Initialize execution and prepare runtime measurement.
+
+-   ### :material-file-import-outline: Data Reading & Validation
+
+    Read records from `Input.txt` and validate structure using  
+    **InputValidator.java**.
+
+-   ### :material-link-variant: Data Storage
+
+    Store valid records in a custom **Linked List**
+    implemented in `LinkedList.java`.
+
+-   ### :material-calculator-variant-outline: Demand Score Calculation
+
+    Compute demand score based on:
+    - Base score  
+    - Academic level multiplier  
+    - Registration time  
+    - Course ID priority  
+
+    Implemented in **DemandScorer.java**.
+
+-   ### :material-swap-horizontal: Data Conversion
+
+    Convert the Linked List into an array
+    to prepare for sorting.
+
+-   ### :material-sort: Sorting & Benchmarking
+
+    Apply:
+    - Selection Sort  
+    - Insertion Sort  
+    - Merge Sort  
+    - Quick Sort  
+
+    Measure runtime using **Benchmarker.java** and **Timer.java**.
+
+-   ### :material-file-export-outline: Output Generation
+
+    Write processed results to `Output.txt`
+    and generate sorted output files.
+
+-   ### :material-chart-line: Runtime Summary
+
+    Display performance comparison and terminate program.
+
+</div>
 
 ---
 
-## System Flowchart
+## :material-image-outline: System Flowchart Diagram
 
-![System Flowchart](../assets/images/flowchart.png)
+???+ details "View Flowchart"
+    ![System Flowchart](../assets/images/flowchart.png)
 
-**Figure:** Flowchart illustrating the complete system process for course registration analysis.
+    **Figure:** Flowchart illustrating the complete system process
+    for course registration analysis.
 
-The diagram above shows the complete data flow in the program.  
-Each step corresponds to a core Java class:  
-- **InputValidator.java** handles validation.  
-- **LinkedList.java** manages data storage.  
-- **DemandScorer.java** computes demand scores.  
-- **Benchmarker.java** and **Timer.java** record runtimes.  
-- **Sorting classes** (`SelectionSort.java`, `InsertionSort.java`, `MergeSort.java`, `QuickSort.java`) implement and compare algorithms.  
-This modular design ensures clarity, reusability, and easy debugging.
+---
+
+## :material-code-tags: Class Responsibility Mapping
+
+The following Java classes correspond to the flow stages:
+
+- **InputValidator.java** → Data validation  
+- **LinkedList.java** → Data storage and traversal  
+- **DemandScorer.java** → Demand score computation  
+- **Sorting Classes** → Algorithm implementation  
+- **Benchmarker.java / Timer.java** → Runtime measurement  
+
+This modular architecture ensures:
+
+- Clear separation of concerns  
+- Reusability of components  
+- Simplified debugging and testing  
+- Scalability for future enhancements  

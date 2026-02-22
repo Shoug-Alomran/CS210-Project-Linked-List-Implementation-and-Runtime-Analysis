@@ -1,28 +1,74 @@
 # Conclusion
 
-The results of this project confirmed that the implemented algorithms performed as predicted, both theoretically and practically. Runtime analysis showed that **Merge Sort** and **Quick Sort** achieved the fastest execution times due to their **O(n log n)** complexity, while **Selection Sort** and **Insertion Sort** were slower, consistent with their **O(n²)** complexity. This alignment between theory and results demonstrates that the system’s implementation was accurate and effective.
+The results confirm that the implemented algorithms behaved as predicted
+both theoretically and empirically.
+
+Runtime measurements showed that:
+
+- **Merge Sort** and **Quick Sort** achieved the fastest execution times  
+  due to their **O(n log n)** complexity.
+
+- **Selection Sort** and **Insertion Sort** performed significantly slower,  
+  consistent with their **O(n²)** time complexity.
+
+The close alignment between theoretical analysis and measured results
+demonstrates correctness of implementation and validity of benchmarking.
 
 ---
 
-## Lessons Learned
+## :material-school-outline: Lessons Learned
 
-Through this project, the team gained a deeper understanding of the **trade-off between simplicity and efficiency**.  
-Simple algorithms such as Selection and Insertion Sort are easier to implement and visualize but become impractical as data size increases. More advanced algorithms like Merge Sort and Quick Sort, though complex, provide significantly better performance for large datasets.  
+<div class="grid cards" markdown>
 
-This hands-on experience illustrated how algorithmic design choices directly impact program performance in real-world scenarios.
+-   ### :material-scale-balance: Simplicity vs. Efficiency
+
+    Simple algorithms such as Selection Sort and Insertion Sort are
+    easier to implement and understand but do not scale well.
+
+-   ### :material-chart-line: Scalability Matters
+
+    Advanced algorithms like Merge Sort and Quick Sort, while more complex,
+    provide significantly better performance for large datasets.
+
+-   ### :material-flask-outline: Theory Meets Practice
+
+    This project reinforced how theoretical complexity directly impacts
+    measurable runtime in real-world scenarios.
+
+</div>
 
 ---
 
-## Future Recommendations
+## :material-lightbulb-outline: Future Recommendations
 
-For future improvements, the system could be extended to:
+<div class="grid cards" markdown>
 
-- Process **real-time registration data** directly from a university database.
+-   ### :material-database-sync-outline: Real-Time Integration
 
-- Include a **graphical interface** to visualize demand scores and sorted results.
+    Process live registration data directly from a university database.
 
-- Add **automatic data validation** and input error detection.
+-   ### :material-monitor-dashboard: Visualization Interface
 
-- Explore additional algorithms such as **Heap Sort** or **Counting Sort** to compare broader performance trends.
+    Implement a graphical interface to visualize demand scores and
+    sorted results dynamically.
 
-Overall, the project successfully achieved its objectives—demonstrating how data structures, algorithmic design, and runtime performance intersect in practical software development.
+-   ### :material-shield-check-outline: Advanced Validation
+
+    Add automated data validation and stronger input error detection.
+
+-   ### :material-cog-outline: Broader Algorithm Comparison
+
+    Extend analysis to include algorithms such as
+    **Heap Sort** and **Counting Sort**.
+
+</div>
+
+---
+
+## :material-check-decagram-outline: Final Reflection
+
+This project successfully demonstrated the relationship between
+**data structures**, **algorithm design**, and **runtime efficiency**.
+
+It highlights how thoughtful algorithm selection directly influences
+system scalability and performance in practical software development.

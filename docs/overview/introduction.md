@@ -1,56 +1,104 @@
 # Introduction
 
-Sorting algorithms are a fundamental part of computer science and play a crucial role in data organization and efficiency. They determine how data is arranged, accessed, and analyzed, forming the backbone of many applications in databases, scheduling systems, and analytical software. Understanding how different sorting algorithms behave is key to developing optimized and scalable solutions.
+Sorting algorithms are fundamental to computer science and play a critical
+role in organizing, processing, and retrieving data efficiently. They form
+the backbone of numerous applications, including databases, scheduling
+systems, analytics platforms, and search operations.
+
+The efficiency of a system often depends on how effectively it can sort and
+structure its data. Understanding algorithmic behavior and performance
+characteristics is essential for building scalable and optimized solutions.
 
 ---
 
-## Background
+<div class="grid cards" markdown>
 
-Sorting enables faster data retrieval and better memory management. In data structures, sorting is often required to simplify operations such as searching, merging, and filtering.  
-Different sorting algorithms—like Selection Sort, Insertion Sort, Merge Sort, and Quick Sort—offer various trade-offs between **simplicity**, **speed**, and **memory usage**. Studying and comparing their performance highlights how algorithmic design impacts runtime efficiency.
+-   ### :material-book-open-outline: Background
 
----
+    Sorting improves data accessibility and simplifies operations such as
+    searching, merging, and filtering. Different algorithms offer distinct
+    trade-offs in:
 
-## Problem Statement
+    - Time complexity  
+    - Space complexity  
+    - Implementation simplicity  
+    - Stability and scalability  
 
-The project focuses on comparing the **performance of four sorting algorithms** by analyzing their theoretical and measured runtimes. It aims to determine which algorithm provides the best efficiency for large-scale datasets by implementing all four methods within a controlled environment using the same dataset.
+    Algorithms such as **Selection Sort**, **Insertion Sort**, **Merge Sort**,
+    and **Quick Sort** illustrate how design decisions affect runtime and memory.
 
-By using student registration data as the input, the project demonstrates how sorting and demand calculation techniques can be applied to practical academic use cases, such as determining course demand trends.
+-   ### :material-help-circle-outline: Problem Statement
+
+    This project compares the performance of four sorting algorithms through
+    theoretical complexity analysis and empirical runtime measurement under a
+    controlled environment.
+
+    All methods are implemented using the same dataset to ensure a fair
+    comparison. The dataset consists of student registration records, enabling
+    a realistic academic use case such as identifying course demand trends.
+
+    **Key question:** Which algorithm performs best as input size increases?
+
+</div>
 
 ---
 
 ## Scope of Work
 
-This project includes:
+<div class="grid cards" markdown>
 
-- Implementing a **custom Linked List** data structure to store student registration data.
+-   ### :material-link-variant: Data Structure
 
-- Processing each record to compute a **demand score** using multiple weighted factors.
+    - Implement a custom **Linked List** to store registration records  
+    - Convert the list into an array for sorting  
 
-- Converting the linked list into an array for sorting.
+-   ### :material-calculator-variant-outline: Demand Computation
 
-- Applying four sorting algorithms:
+    - Compute a **demand score** per record  
+    - Use multiple weighted factors for scoring  
 
-    1. Selection Sort  
+-   ### :material-sort: Sorting Algorithms
 
-    2. Insertion Sort  
+    Implement and apply:
 
-    3. Merge Sort  
+    - Selection Sort  
+    - Insertion Sort  
+    - Merge Sort  
+    - Quick Sort  
 
-    4. Quick Sort
+-   ### :material-timer-outline: Performance Measurement
 
-- Measuring and comparing runtimes for each algorithm.
+    - Measure runtime for each algorithm  
+    - Compare results under consistent conditions  
+    - Interpret performance differences at scale  
 
-- Interpreting the results to evaluate which approach is most efficient.
+</div>
 
 ---
 
 ## Objective
 
-The objective of this project is to:
+<div class="grid cards" markdown>
 
-- Explore the relationship between **data structures**, **algorithmic design**, and **runtime performance**.
+-   ### :material-chart-line: Performance Understanding
 
-- Understand the practical trade-offs between simple and complex sorting techniques.
+    Explore the relationship between algorithmic design and runtime efficiency,
+    especially under large-scale datasets.
 
-- Provide a measurable comparison of efficiency between algorithms in real-world data processing scenarios.
+-   ### :material-scale-balance: Trade-off Analysis
+
+    Evaluate practical trade-offs between simpler approaches and
+    divide-and-conquer algorithms (time vs. space vs. implementation cost).
+
+-   ### :material-flask-outline: Empirical Validation
+
+    Compare theoretical complexity expectations with measured runtimes to
+    highlight real-world behavior.
+
+</div>
+
+---
+
+!!! note "Evaluation Focus"
+    The comparison is performed using the same dataset and environment across
+    all implementations to keep the results consistent and comparable.

@@ -1,34 +1,273 @@
+/* =========================
+   styles/extra.css (FULL FIX)
+   - Deep blue gradient theme across header/tabs/sidebars/footer/H1
+   - Dark mode uses deep navy
+   ========================= */
+
+:root{
+  /* Deep Blue Theme */
+  --blue-1:#1e40af;   /* deep royal */
+  --blue-2:#2563eb;   /* vivid blue */
+
+  /* Dark-mode blues (navy) */
+  --blue-d1:#0b1f4b;  /* deep navy */
+  --blue-d2:#132f6b;  /* navy */
+
+  /* Soft states derived from blue */
+  --blue-hover: rgba(255,255,255,0.14);
+  --blue-soft: rgba(37,99,235,0.12);
+  --blue-soft-strong: rgba(37,99,235,0.20);
+
+  --ink: #0f172a;
+
+  /* Dark tokens */
+  --dark-bg:#0b1220;
+  --dark-surface:#0f172a;
+  --dark-text:rgba(255,255,255,0.88);
+  --dark-text-soft:rgba(255,255,255,0.72);
+  --dark-border:rgba(255,255,255,0.10);
+}
+
 /* =========================================================
-   CUSTOM FOOTER (MATCH HEADER COLORS)
+   MATERIAL DARK MODE CORE FIX
+   ========================================================= */
+[data-md-color-scheme="slate"]{
+  --md-default-bg-color: var(--dark-bg);
+  --md-default-fg-color: var(--dark-text);
+  --md-default-fg-color--light: var(--dark-text-soft);
+
+  --md-code-bg-color: rgba(255,255,255,0.06);
+
+  /* Link/accent colors (blue) */
+  --md-typeset-a-color: #93c5fd;
+  --md-accent-fg-color: #93c5fd;
+
+  --md-admonition-bg-color: rgba(255,255,255,0.06);
+}
+
+/* Give "surfaces" a consistent dark feel */
+[data-md-color-scheme="slate"] .md-container{
+  background: var(--md-default-bg-color) !important;
+}
+[data-md-color-scheme="slate"] .md-content,
+[data-md-color-scheme="slate"] .md-sidebar,
+[data-md-color-scheme="slate"] .md-sidebar__inner{
+  background: transparent !important;
+}
+
+/* =========================================================
+   HEADER + TABS (SCHEME-AWARE GRADIENTS)
    ========================================================= */
 
-/* Light mode footer (same as header light scheme) */
-[data-md-color-scheme="default"] .custom-footer{
-  background: linear-gradient(90deg, #1e3a8a, #2563eb) !important;
-  color: #fff !important;
-
-  padding: 56px 16px !important;
-  border-top: 1px solid rgba(255,255,255,0.14) !important;
+/* Light mode */
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-tabs{
+  background:linear-gradient(90deg,var(--blue-1),var(--blue-2)) !important;
+  color:#fff !important;
 }
 
-/* Dark mode footer (same as header dark scheme) */
-[data-md-color-scheme="slate"] .custom-footer{
-  background: linear-gradient(90deg, #020617, #0f172a) !important;
-  color: #fff !important;
-
-  padding: 56px 16px !important;
-  border-top: 1px solid rgba(255,255,255,0.14) !important;
+/* Dark mode */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs{
+  background:linear-gradient(90deg,var(--blue-d1),var(--blue-d2)) !important;
+  color:#fff !important;
 }
 
-/* Fallback (if scheme not applied for some reason) */
+.md-header__inner,
+.md-tabs__inner{
+  background:transparent !important;
+}
+
+/* Remove Material max-width clamp so tabs don't get cut */
+.md-header__inner.md-grid,
+.md-tabs__inner.md-grid{
+  max-width:100% !important;
+  width:100% !important;
+  margin:0 !important;
+  padding-left:0.8rem !important;
+  padding-right:0.8rem !important;
+  box-sizing:border-box !important;
+}
+
+/* Tabs horizontal scroll when too many items */
+.md-tabs__inner{
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.md-tabs__list{
+  display:inline-flex !important;
+  flex-wrap:nowrap !important;
+  width:max-content !important;
+  min-width:100% !important;
+  padding-right:1.5rem !important;
+}
+.md-tabs__item{ flex:0 0 auto !important; }
+
+.md-tabs__link,
+.md-tabs__link .md-ellipsis{
+  white-space:nowrap !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+}
+.md-tabs__link:hover{
+  background-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Header icons + search stay white */
+.md-header .md-header__button,
+.md-header .md-header__button *,
+.md-search__form,
+.md-search__input,
+.md-search__icon,
+.md-header__option{
+  background-color:transparent !important;
+  color:#fff !important;
+}
+
+/* Optional scrollbar styling */
+.md-tabs__inner::-webkit-scrollbar{ height:8px; }
+
+/* =========================================================
+   LEFT SIDEBAR (PRIMARY NAV)
+   ========================================================= */
+.md-nav--primary{ padding-top:12px !important; }
+
+/* Normal links */
+.md-nav--primary .md-nav__link{
+  background:transparent !important;
+  color:inherit !important;
+  font-weight:400 !important;
+  border-radius:8px !important;
+  padding:6px 10px !important;
+}
+.md-nav--primary .md-nav__link:hover{
+  background-color: rgba(37,99,235,0.10) !important;
+}
+
+/* Active page link highlight */
+.md-nav--primary .md-nav__link--active{
+  background-color: rgba(37,99,235,0.18) !important;
+  color: var(--blue-1) !important;
+  font-weight:700 !important;
+}
+
+/* Group titles pills */
+.md-nav--primary .md-nav__item--section > :is(.md-nav__title, .md-nav__link),
+.md-nav--primary .md-nav__item--nested  > :is(.md-nav__title, .md-nav__link),
+.md-nav--primary .md-nav__item--section > .md-nav__title .md-nav__button,
+.md-nav--primary .md-nav__item--nested  > .md-nav__title .md-nav__button{
+  display:inline-flex !important;
+  align-items:center !important;
+  width:fit-content !important;
+
+  margin:8px !important;
+  padding:8px 12px !important;
+
+  background:linear-gradient(90deg,var(--blue-1),var(--blue-2)) !important;
+  color:#fff !important;
+
+  border-radius:999px !important;
+  font-weight:700 !important;
+  letter-spacing:0.2px !important;
+
+  box-sizing:border-box !important;
+  min-width:0 !important;
+}
+
+/* Dark mode: darker pill gradient */
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > :is(.md-nav__title, .md-nav__link),
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--nested  > :is(.md-nav__title, .md-nav__link){
+  background:linear-gradient(90deg,var(--blue-d1),var(--blue-d2)) !important;
+}
+
+/* Keep chevron readable */
+.md-nav--primary .md-nav__item--section > .md-nav__title .md-nav__button,
+.md-nav--primary .md-nav__item--nested  > .md-nav__title .md-nav__button{
+  margin-left:8px !important;
+  background:transparent !important;
+  color:inherit !important;
+  opacity:1 !important;
+}
+
+/* Sidebar scrolling safety */
+.md-sidebar__scrollwrap{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+.md-sidebar,
+.md-sidebar__inner,
+.md-nav--primary{
+  overflow:visible !important;
+}
+
+/* Avoid text clipping */
+.md-nav__link,
+.md-nav__title{
+  overflow:visible !important;
+  text-overflow:clip !important;
+  white-space:normal !important;
+  word-break:break-word !important;
+  overflow-wrap:anywhere !important;
+  line-height:1.25 !important;
+  padding-left:0.6rem !important;
+  padding-right:0.6rem !important;
+}
+
+@media (min-width:76.25em){
+  .md-sidebar--primary{ width:16rem !important; }
+}
+
+/* =========================================================
+   RIGHT SIDEBAR (TOC)
+   ========================================================= */
+.md-nav--secondary{ padding-top:12px !important; }
+
+/* Title pill */
+.md-nav--secondary .md-nav__title{
+  background:linear-gradient(90deg,var(--blue-1),var(--blue-2)) !important;
+  color:#fff !important;
+
+  border-radius:999px !important;
+  padding:10px 12px !important;
+  margin:0 0 10px 0 !important;
+
+  font-weight:700 !important;
+  letter-spacing:0.2px !important;
+}
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__title{
+  background:linear-gradient(90deg,var(--blue-d1),var(--blue-d2)) !important;
+}
+
+/* TOC links */
+.md-nav--secondary .md-nav__link{
+  border-radius:8px !important;
+  padding:6px 10px !important;
+}
+.md-nav--secondary .md-nav__link:hover{
+  background-color: rgba(37,99,235,0.10) !important;
+}
+.md-nav--secondary .md-nav__link--active{
+  background-color: rgba(37,99,235,0.20) !important;
+  color: var(--blue-1) !important;
+  font-weight:700 !important;
+}
+.md-nav--secondary .md-nav__link--active *{ color:inherit !important; }
+
+/* =========================================================
+   CUSTOM FOOTER (SCHEME-AWARE)
+   ========================================================= */
 .custom-footer{
-  background: linear-gradient(90deg, #0f172a, #1e3a8a) !important;
-  color: #fff !important;
-  padding: 56px 16px !important;
-  border-top: 1px solid rgba(255,255,255,0.14) !important;
+  background:linear-gradient(90deg,var(--blue-1),var(--blue-2)) !important;
+  color:#fff !important;
+
+  padding:56px 16px !important;
+  border-top:1px solid rgba(255,255,255,0.14) !important;
+}
+[data-md-color-scheme="slate"] .custom-footer{
+  background:linear-gradient(90deg,var(--blue-d1),var(--blue-d2)) !important;
 }
 
-/* Layout stays the same */
 .custom-footer__inner{
   max-width:1200px !important;
   margin:0 auto !important;
@@ -92,7 +331,7 @@
 
   font-weight:900 !important;
   background: rgba(255,255,255,0.92) !important;
-  color: #0f172a !important; /* matches header ink */
+  color: var(--ink) !important;
 
   transition: opacity 120ms ease, transform 120ms ease !important;
 }
@@ -135,23 +374,20 @@
 }
 
 /* =========================================================
-   FOOTER META (MATCH HEADER COLORS)
+   FOOTER META (SCHEME-AWARE)
    ========================================================= */
-
 .md-footer-meta,
 .md-footer-meta__inner{
   background: transparent !important;
   border-top: 0 !important;
 }
 
-[data-md-color-scheme="default"] .md-footer-meta{
-  background: linear-gradient(90deg, #1e3a8a, #2563eb) !important;
+.md-footer-meta{
+  background: linear-gradient(90deg, var(--blue-1), var(--blue-2)) !important;
   color: rgba(255, 255, 255, 0.88) !important;
 }
-
 [data-md-color-scheme="slate"] .md-footer-meta{
-  background: linear-gradient(90deg, #020617, #0f172a) !important;
-  color: rgba(255, 255, 255, 0.88) !important;
+  background: linear-gradient(90deg, var(--blue-d1), var(--blue-d2)) !important;
 }
 
 .md-footer-meta,
@@ -161,4 +397,93 @@
 
 .md-footer-meta__inner{
   padding-top: 14px !important;
+}
+
+/* =========================================================
+   HOME HERO CARD (DEEP BLUE)
+   ========================================================= */
+.home-hero{
+  margin: 0 0 18px 0;
+}
+
+.home-hero__text{
+  border-radius: 18px;
+  padding: 22px 22px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+
+  background:
+    radial-gradient(800px 240px at 20% 0%, rgba(37, 99, 235, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.05));
+
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+}
+
+/* Better spacing/typography inside the hero */
+.home-hero__text h1{
+  margin-top: 0 !important;
+}
+
+.home-hero__text p{
+  max-width: 90ch;
+}
+
+/* Buttons look like a "pair" */
+.home-hero__text .md-button{
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+/* Dark mode hero */
+[data-md-color-scheme="slate"] .home-hero__text{
+  border: 1px solid rgba(96, 165, 250, 0.26);
+  background:
+    radial-gradient(800px 240px at 20% 0%, rgba(96, 165, 250, 0.16), transparent 60%),
+    linear-gradient(180deg, rgba(30,58,138,0.70), rgba(15, 23, 42, 0.38));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================
+   WIDER LAYOUT — More Content Space
+   ========================================= */
+@media (min-width: 1400px){
+  .md-grid{
+    max-width: 1900px;
+  }
+}
+
+@media (min-width: 1200px){
+  .md-main__inner{
+    column-gap: 4rem;
+  }
+}
+
+/* =========================================================
+   H1 HERO BLOCK (DEEP BLUE)
+   ========================================================= */
+.md-typeset > h1{
+  display: block;
+  padding: 28px 32px;
+  border-radius: 22px;
+
+  border: 1px solid rgba(30, 64, 175, 0.35);
+
+  background:
+    radial-gradient(800px 240px at 20% 0%, rgba(59,130,246,0.28), transparent 60%),
+    linear-gradient(180deg, rgba(37,99,235,0.18), rgba(29,78,216,0.10));
+
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+
+  font-weight: 900 !important;
+  letter-spacing: -0.4px;
+  margin-bottom: 1.6rem !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset > h1{
+  border: 1px solid rgba(96,165,250,0.35);
+
+  background:
+    radial-gradient(800px 240px at 20% 0%, rgba(96,165,250,0.22), transparent 60%),
+    linear-gradient(180deg, rgba(30,58,138,0.85), rgba(23,37,84,0.75));
+
+  box-shadow: 0 20px 55px rgba(0,0,0,0.45);
 }

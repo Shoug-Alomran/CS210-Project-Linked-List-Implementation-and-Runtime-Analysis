@@ -1,38 +1,85 @@
 # Asymptotic Complexity
 
-This section analyzes the theoretical time complexity **T(n)** and Big-O **O(n)** for each phase and sorting algorithm used in the system.
+This section evaluates the theoretical time complexity **T(n)**
+and asymptotic growth rate **O(n)** for each phase of the system.
+
+Asymptotic analysis allows us to predict how performance scales
+as the dataset size increases.
 
 ---
 
-## File Reading and Writing
-- **Operation:** Reading from `Input.txt` and writing to `Output.txt`
-- **Complexity:** O(n)
-- **Explanation:** Each record is read and written once, so execution grows linearly with the number of records.
+## :material-file-sync-outline: File Reading & Writing
+
+<div class="grid cards" markdown>
+
+-   **Operation:** Reading from `Input.txt`  
+-   **Operation:** Writing to `Output.txt`  
+-   **Time Complexity:** O(n)
+
+    Each record is processed exactly once.
+    The total number of operations grows linearly
+    with the number of registration records.
+
+</div>
 
 ---
 
-## Demand Score Calculation
-- **Operation:** Calculating demand score for each student
-- **Complexity:** O(n)
-- **Explanation:** Each record is processed once with simple arithmetic operations and conditional checks.
+## :material-calculator-variant-outline: Demand Score Calculation
+
+<div class="grid cards" markdown>
+
+-   **Operation:** Compute demand score per registration  
+-   **Time Complexity:** O(n)
+
+    Each student record is evaluated once using
+    constant-time arithmetic and conditional logic.
+    No nested iteration is involved.
+
+</div>
 
 ---
 
-## Sorting Algorithms
+## :material-sort: Sorting Algorithms Complexity
 
 | Algorithm | Best Case | Average Case | Worst Case | Explanation |
 |------------|------------|---------------|--------------|--------------|
-| Selection Sort | O(n²) | O(n²) | O(n²) | Always scans the unsorted part of the array for the minimum element. |
-| Insertion Sort | O(n) | O(n²) | O(n²) | Performs best when data is nearly sorted. |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | Divides the array into halves recursively, merging sorted parts efficiently. |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | Fastest in most cases but degrades if pivots are poorly chosen. |
+| Selection Sort | O(n²) | O(n²) | O(n²) | Repeatedly scans remaining unsorted elements to find minimum. |
+| Insertion Sort | O(n) | O(n²) | O(n²) | Efficient for nearly sorted data; degrades with disorder. |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | Recursively divides array and merges efficiently. |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | Efficient with balanced pivots; worst case occurs with poor pivot choice. |
 
 ---
 
-## Summary
+## :material-chart-line: Theoretical Insights
 
-Theoretical performance confirms that:
+<div class="grid cards" markdown>
 
-- **Merge Sort** and **Quick Sort** are the most efficient for large datasets.
+-   ### :material-expand-all-outline: Linear Phases
 
-- **Selection Sort** and **Insertion Sort** are simpler but slower, suitable for small datasets or educational use.
+    File operations and demand score computation scale
+    proportionally with input size (O(n)).
+
+-   ### :material-trending-up: Divide-and-Conquer Efficiency
+
+    Merge Sort and Quick Sort reduce the problem size recursively,
+    achieving O(n log n) growth.
+
+-   ### :material-alert-outline: Quadratic Growth
+
+    Selection and Insertion Sort require nested iteration,
+    resulting in O(n²) scaling for larger datasets.
+
+</div>
+
+---
+
+## :material-check-decagram-outline: Summary
+
+Theoretical analysis confirms that:
+
+- **Merge Sort** and **Quick Sort** are optimal for large datasets.
+- **Selection Sort** and **Insertion Sort** are simpler but inefficient at scale.
+- Linear operations (file I/O and scoring) do not dominate runtime.
+
+This theoretical framework directly explains the empirical
+runtime measurements observed in the system.

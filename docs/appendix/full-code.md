@@ -1,20 +1,23 @@
 # Appendix B — Full Source Code
 
-This appendix includes the complete Java implementation used in the **CS210 Project: Linked List Implementation and Runtime Analysis**.  
-All files were created and tested using **Visual Studio Code (VS Code)** and compiled with **Java 17**.  
-Each file fulfills a specific role within the system’s modular architecture.
+This appendix includes the complete Java implementation used in the  
+**CS210 Project — Linked List Implementation and Runtime Analysis**.
+
+All files were developed in **Visual Studio Code (VS Code)**  
+and compiled using **Java 17**.
+
+Each file plays a defined role within the system’s modular architecture.
 
 ---
 
-## 1. Core Data Structures
+## :material-database-outline: 1. Core Data Structures
 
-??? note "Node.java"
+???+ details "Node.java — Linked List Node Structure"
     ```java
     public class Node {
-        Registration studData; // Field to store Registration data
-        Node next; // Field to store next Node reference
+        Registration studData;
+        Node next;
 
-        // Task: Constructor to initialize node with Registration
         public Node(Registration studData) {
             this.studData = studData;
             this.next = null;
@@ -22,8 +25,9 @@ Each file fulfills a specific role within the system’s modular architecture.
     }
     ```
 
-??? note "Registration.java"
+???+ details "Registration.java — Data Model"
     ```java
+
     public class Registration {
         private String studentID;
         private String courseID;
@@ -31,32 +35,24 @@ Each file fulfills a specific role within the system’s modular architecture.
         private int studTime;
         private double studDemandScore;
 
-        // Constructor
         public Registration(String studentID, String courseID, int academicLevel, int studTime, double studDemandScore) {
             this.studentID = studentID;
             this.courseID = courseID;
             this.academicLevel = academicLevel;
             this.studTime = studTime;
-            this.studDemandScore = 0; // temporary value prior to processing
+            this.studDemandScore = 0;
         }
 
-        // Getters and setters
         public String getStudentID() { return studentID; }
-        public void setStudentID(String studentID) { this.studentID = studentID; }
-
         public String getCourseID() { return courseID; }
-        public void setCourseID(String courseID) { this.courseID = courseID; }
-
         public int getAcademicLevel() { return academicLevel; }
-        public void setAcademicLevel(int academicLevel) { this.academicLevel = academicLevel; }
-
         public int getStudTime() { return studTime; }
-        public void setStudTime(int studTime) { this.studTime = studTime; }
-
         public double getStudDemandScore() { return studDemandScore; }
-        public void setStudDemandScore(double studDemandScore) { this.studDemandScore = studDemandScore; }
 
-        // Format output line
+        public void setStudDemandScore(double studDemandScore) {
+            this.studDemandScore = studDemandScore;
+        }
+
         @Override
         public String toString() {
             return studentID + ";" + courseID + ";" + academicLevel + ";" + studTime + ";" + Math.round(studDemandScore) + ";";
@@ -66,25 +62,15 @@ Each file fulfills a specific role within the system’s modular architecture.
 
 ---
 
-## 2. Linked List Implementation
+## :material-link-variant: 2. Linked List Implementation
 
-??? note "LinkedList.java"
+???+ details "LinkedList.java — Custom Implementation"
     ```java
+
     public class LinkedList {
         Node head;
         Node tail;
         int size;
-
-        public void insertNodeAtHead(Registration data) {
-            Node newNode = new Node(data);
-            if (head == null) {
-                head = tail = newNode;
-            } else {
-                newNode.next = head;
-                head = newNode;
-            }
-            size++;
-        }
 
         public void insertNodeAtTail(Registration data) {
             Node newNode = new Node(data);
@@ -95,45 +81,6 @@ Each file fulfills a specific role within the system’s modular architecture.
                 tail = newNode;
             }
             size++;
-        }
-
-        public void deleteNodeByValue(Registration data) {
-            if (head == null) return;
-
-            if (head.studData.equals(data)) {
-                head = head.next;
-                size--;
-                return;
-            }
-
-            Node prev = head;
-            Node curr = head.next;
-            while (curr != null) {
-                if (curr.studData.equals(data)) {
-                    prev.next = curr.next;
-                    size--;
-                    return;
-                }
-                prev = curr;
-                curr = curr.next;
-            }
-        }
-
-        public boolean searchKey(Registration data) {
-            Node temp = head;
-            while (temp != null) {
-                if (temp.studData.equals(data)) return true;
-                temp = temp.next;
-            }
-            return false;
-        }
-
-        public void displayLinkedList() {
-            Node temp = head;
-            while (temp != null) {
-                System.out.println(temp.studData);
-                temp = temp.next;
-            }
         }
 
         public Registration[] convToArray() {
@@ -151,9 +98,9 @@ Each file fulfills a specific role within the system’s modular architecture.
 
 ---
 
-## 3. Supporting Classes
+## :material-cog-outline: 3. Supporting Classes
 
-??? note "FileService.java"
+???+ details "FileService.java — File Handling Layer"
     ```java
     import java.io.*;
 
@@ -164,10 +111,10 @@ Each file fulfills a specific role within the system’s modular architecture.
     }
     ```
 
-??? note "InputValidator.java"
+???+ details "InputValidator.java — Input Processing"
     ```java
+
     import java.io.*;
-    import java.util.*;
 
     public class InputValidator {
         public static LinkedList readAndValidateFile(String filename) {
@@ -177,11 +124,15 @@ Each file fulfills a specific role within the system’s modular architecture.
                 while ((line = br.readLine()) != null) {
                     String[] parts = line.split(";");
                     if (parts.length == 4) {
-                        String id = parts[0];
-                        String course = parts[1];
-                        int level = Integer.parseInt(parts[2]);
-                        int time = Integer.parseInt(parts[3]);
-                        list.insertNodeAtTail(new Registration(id, course, level, time, 0));
+                        list.insertNodeAtTail(
+                            new Registration(
+                                parts[0],
+                                parts[1],
+                                Integer.parseInt(parts[2]),
+                                Integer.parseInt(parts[3]),
+                                0
+                            )
+                        );
                     }
                 }
             } catch (IOException e) {
@@ -192,16 +143,16 @@ Each file fulfills a specific role within the system’s modular architecture.
     }
     ```
 
-??? note "DemandScorer.java"
+???+ details "DemandScorer.java — Demand Calculation Logic"
     ```java
+    
     public class DemandScorer {
         public static void calculateScores(LinkedList list) {
             Node current = list.head;
             while (current != null) {
                 Registration reg = current.studData;
-                double score = 50; // base score
+                double score = 50;
 
-                // Academic level multiplier
                 switch (reg.getAcademicLevel()) {
                     case 1 -> score *= 0.75;
                     case 2 -> score *= 0.90;
@@ -210,7 +161,6 @@ Each file fulfills a specific role within the system’s modular architecture.
                     case 5 -> score *= 1.50;
                 }
 
-                // Time of registration
                 int t = reg.getStudTime();
                 if (t >= 6 && t < 8) score += 5;
                 else if (t >= 8 && t < 10) score += 10;
@@ -218,8 +168,9 @@ Each file fulfills a specific role within the system’s modular architecture.
                 else if (t >= 16 && t < 20) score -= 10;
                 else if (t >= 20) score -= 15;
 
-                // Course priority
-                if (reg.getCourseID().endsWith("1") || reg.getCourseID().endsWith("3") || reg.getCourseID().endsWith("5"))
+                if (reg.getCourseID().endsWith("1") ||
+                    reg.getCourseID().endsWith("3") ||
+                    reg.getCourseID().endsWith("5"))
                     score += 20;
                 else
                     score -= 10;

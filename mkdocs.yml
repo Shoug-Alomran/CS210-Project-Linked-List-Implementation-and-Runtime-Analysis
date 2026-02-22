@@ -9,10 +9,15 @@ theme:
   language: en
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
-    - navigation.instant
+    - navigation.indexes
+    - navigation.top
+    - navigation.path
+    - toc.follow
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
   palette:
   - scheme: default
@@ -57,15 +62,15 @@ plugins:
 markdown_extensions:
   - admonition
   - attr_list
-  - tables
-  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.details
 
 extra_css:
   - styles/extra.css
