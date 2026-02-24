@@ -1,5 +1,6 @@
 (function () {
   const EMAIL = "inquiry@shoug-tech.com";
+  const MAIN_WEBSITE = "https://shoug-tech.com/";
 
   function getSiteRootHref() {
     const baseTag = document.querySelector("base[href]");
@@ -120,7 +121,12 @@
             <a class="footer-link" href="${links.appendixCode}">Full Source Code</a>
             <a class="footer-link" href="${links.appendixScreens}">Run Screenshots</a>
           </div>
-
+<div class="footer-col">
+  <div class="footer-col__title">Website</div>
+  <a class="footer-link" href="${MAIN_WEBSITE}" target="_blank" rel="noopener">
+    shoug-tech.com
+  </a>
+</div>
           <div class="footer-col">
             <div class="footer-col__title">More</div>
             <a class="footer-link" href="${links.teamwork}">Teamwork Contribution</a>
