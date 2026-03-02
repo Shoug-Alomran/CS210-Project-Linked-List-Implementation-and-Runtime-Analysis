@@ -66,36 +66,57 @@ body,
   background: linear-gradient(100deg, #091534 0%, #123065 50%, #154b7f 100%) !important;
 }
 
-.md-header__button.md-logo {
+.md-header__button.md-logo,
+.md-nav__button.md-logo {
   margin-right: 0.35rem;
-  border-radius: 999px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(220, 238, 255, 0.42);
   box-shadow: 0 4px 14px rgba(2, 10, 30, 0.24);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2.35rem;
-  min-height: 2.35rem;
-  padding: 0.26rem;
+  min-width: 4.2rem;
+  min-height: 2.15rem;
+  padding: 0.18rem 0.26rem;
 }
 
 .md-header__button.md-logo svg,
-.md-header__button.md-logo img {
-  width: 1.52rem !important;
-  height: 1.52rem !important;
+.md-nav__button.md-logo svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
   max-width: none;
 }
 
-.md-header__button.md-logo svg {
+.md-header__button.md-logo img,
+.md-nav__button.md-logo img {
+  width: 3.65rem !important;
+  height: auto !important;
+  max-width: 3.65rem !important;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.06) saturate(1.04) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.22));
+}
+
+.md-header__button.md-logo svg,
+.md-nav__button.md-logo svg {
   fill: #ffffff !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
-.md-header__button.md-logo img {
-  object-fit: contain;
-  border-radius: 3px;
-  filter: brightness(1.15) contrast(1.2) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+@media (max-width: 59.9844em) {
+  .md-header__button.md-logo,
+  .md-nav__button.md-logo {
+    min-width: 3.55rem;
+    min-height: 2rem;
+  }
+
+  .md-header__button.md-logo img,
+  .md-nav__button.md-logo img {
+    width: 3rem !important;
+    max-width: 3rem !important;
+  }
 }
 
 .md-header__inner.md-grid,
@@ -593,6 +614,16 @@ body,
   border-top: 1px solid rgba(186, 222, 255, 0.24);
   color: rgba(226, 240, 255, 0.82);
   font-size: 0.86rem;
+}
+
+.custom-footer__legal-link {
+  color: #d9ecff !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.custom-footer__legal-link:hover {
+  color: #ffffff !important;
 }
 
 @media (max-width: 76.2344em) {

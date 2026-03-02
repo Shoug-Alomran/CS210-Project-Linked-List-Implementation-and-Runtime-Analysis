@@ -1,6 +1,7 @@
 (function () {
   const EMAIL = "inquiry@shoug-tech.com";
   const MAIN_WEBSITE = "https://shoug-tech.com/";
+  const BLUEPRINT_WEBSITE = "https://blueprint.shoug-tech.com/";
   const STORAGE_NAV = "ds-nav-collapsed";
   const STORAGE_TOC = "ds-toc-collapsed";
 
@@ -161,7 +162,8 @@
         </div>
       </div>
       <div class="custom-footer__legal">
-        © 2026 Shoug Fawaz Alomran · All rights reserved
+        © 2026 Shoug Fawaz Alomran · All rights reserved ·
+        <a class="custom-footer__legal-link" href="${BLUEPRINT_WEBSITE}" target="_blank" rel="noopener">Made by Blueprint</a>
       </div>
     `;
 
