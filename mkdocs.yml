@@ -52,6 +52,7 @@ nav:
   - Report:
       - View Report: report/report.md
       - Full HTML Report: report/report.html
+      - PDF Report: report/report.pdf
   - Appendices:
       - Flowchart: appendix/flowchart.md
       - Full Source Code: appendix/full-code.md
