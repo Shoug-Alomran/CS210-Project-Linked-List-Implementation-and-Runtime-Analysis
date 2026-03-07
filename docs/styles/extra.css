@@ -725,11 +725,16 @@ body,
   }
 
   .md-sidebar--primary .md-nav__item--nested > .md-nav {
-    display: block !important;
+    display: none !important;
     opacity: 1 !important;
     visibility: visible !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     padding: 0 !important;
+  }
+
+  .md-sidebar--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav {
+    display: block !important;
+    overflow: visible !important;
   }
 
   .md-sidebar--primary .md-nav__list .md-nav__list {
