@@ -712,4 +712,33 @@ body,
     box-shadow: none !important;
     padding: 0.65rem !important;
   }
+
+  /* Mobile fix: force nested nav to normal document flow (no overlayed panels) */
+  .md-sidebar--primary .md-nav,
+  .md-sidebar--primary .md-nav__item--nested > .md-nav {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    max-height: none !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .md-sidebar--primary .md-nav__item--nested > .md-nav {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .md-sidebar--primary .md-nav__list .md-nav__list {
+    margin: 0.05rem 0 0.3rem 0.65rem !important;
+  }
+
+  .md-sidebar--primary .md-nav__item--nested > label.md-nav__link,
+  .md-sidebar--primary .md-nav__item--section > label.md-nav__link {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.2rem !important;
+  }
 }
