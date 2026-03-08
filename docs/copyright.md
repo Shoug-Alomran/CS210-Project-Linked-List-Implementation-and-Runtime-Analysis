@@ -1,3 +1,7 @@
+---
+robots: noindex,follow
+---
+
 # Copyright & Usage Policy
 
 © 2026 Shoug Fawaz Alomran  

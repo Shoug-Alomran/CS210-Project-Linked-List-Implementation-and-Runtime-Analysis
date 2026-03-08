@@ -11,13 +11,13 @@ You may preview it directly below or open it separately.
 
     View the full report in a separate tab for better navigation.
 
-    [Open Report in New Tab](report.html)
+    [Open Report in New Tab](report.html){ target="_blank" rel="nofollow noopener" }
 
--   ### :material-download: Download Copy
+-   ### :material-download: Download PDF
 
-    Download the HTML report file directly to your device.
+    Download the PDF copy instead of indexing the raw HTML asset.
 
-    [Download Report](report.html){: download }
+    [Download PDF Report](report.pdf){ download rel="nofollow" }
 
 </div>
 
@@ -35,6 +35,8 @@ You may preview it directly below or open it separately.
 
 <iframe 
     src="../report.html"
+    loading="lazy"
+    title="CS210 project report preview"
     style="width:100%; height:85vh; border:none;">
 </iframe>
 

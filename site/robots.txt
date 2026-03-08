@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /report/report.html
+Disallow: /report/report.pdf
+Disallow: /*?q=*
+Disallow: /*.md$
 
 Sitemap: https://linkedlist.shoug-tech.com/sitemap.xml

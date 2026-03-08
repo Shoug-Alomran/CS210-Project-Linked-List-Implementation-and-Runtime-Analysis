@@ -87,7 +87,6 @@
       references: url("references/"),
       // Report
       reportView: url("report/report/"),
-      reportHtml: url("report/report.html"),
       // Appendices (correct folder name)
       appendixFlowchart: url("appendix/flowchart/"),
       appendixCode: url("appendix/full-code/"),
@@ -137,7 +136,6 @@
           <div class="footer-col">
             <div class="footer-col__title">Report</div>
             <a class="footer-link" href="${links.reportView}">View Report</a>
-            <a class="footer-link" href="${links.reportHtml}">Full HTML Report</a>
           </div>
 
           <div class="footer-col">

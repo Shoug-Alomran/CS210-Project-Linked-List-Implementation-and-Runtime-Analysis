@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if page and page.meta and page.meta.robots %}
+    <meta name="robots" content="{{ page.meta.robots }}">
+  {% endif %}
+  {% if page and page.canonical_url %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": {{ page.title | tojson }},
+        "url": {{ page.canonical_url | tojson }},
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": {{ config.site_name | tojson }},
+          "url": {{ config.site_url | tojson }}
+        },
+        {% if config.site_description %}
+        "description": {{ config.site_description | tojson }},
+        {% endif %}
+        "inLanguage": {{ config.theme.language | default("en", true) | tojson }}
+      }
+    </script>
+  {% endif %}
+{% endblock %}
